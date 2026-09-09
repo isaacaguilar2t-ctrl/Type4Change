@@ -1,0 +1,1522 @@
+/* =========================================
+   TYPE4CHANGE
+   WORLD MAP
+========================================= */
+
+:root {
+
+    --font: "Press Start 2P", monospace;
+
+    --dark-blue: #061936;
+
+    --deep-blue: #082c57;
+
+    --ocean: #078bc1;
+
+    --ocean-light: #25c9ed;
+
+    --yellow: #ffd83d;
+
+    --green: #47dc62;
+
+    --purple: #a84cff;
+
+    --pink: #ff55c8;
+
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+body {
+
+    overflow: hidden;
+
+    font-family: var(--font);
+
+    color: white;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #11a7d1 0%,
+            #0875ad 45%,
+            #05376c 100%
+        );
+
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.game-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #1cbbe1,
+            #0878ad 55%,
+            #04325f 100%
+        );
+
+}
+
+
+.stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .45;
+
+    background-image:
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        );
+
+    background-size: 38px 38px;
+
+}
+
+
+.cloud {
+
+    position: absolute;
+
+    width: 190px;
+
+    height: 42px;
+
+    background: rgba(255,255,255,.13);
+
+    border-radius: 50px;
+
+}
+
+
+.cloud::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+
+    height: 70px;
+
+    left: 25px;
+
+    bottom: 5px;
+
+    border-radius: 50%;
+
+    background: inherit;
+
+}
+
+
+.cloud::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 85px;
+
+    height: 85px;
+
+    right: 25px;
+
+    bottom: 2px;
+
+    border-radius: 50%;
+
+    background: inherit;
+
+}
+
+
+.cloud-a {
+
+    top: 19%;
+
+    left: 3%;
+
+}
+
+
+.cloud-b {
+
+    top: 27%;
+
+    right: 3%;
+
+    transform: scale(.7);
+
+}
+
+
+/* =========================================
+   MOUNTAINS
+========================================= */
+
+.mountain {
+
+    position: absolute;
+
+    bottom: -2%;
+
+    width: 0;
+
+    height: 0;
+
+    border-left: 250px solid transparent;
+
+    border-right: 250px solid transparent;
+
+}
+
+
+.mountain-a {
+
+    left: -70px;
+
+    border-bottom: 240px solid #23647c;
+
+}
+
+
+.mountain-b {
+
+    right: -80px;
+
+    border-bottom: 300px solid #1c5673;
+
+}
+
+
+/* =========================================
+   FOREST
+========================================= */
+
+.forest {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 12%;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 30px,
+            rgba(0,0,0,.12) 30px,
+            rgba(0,0,0,.12) 40px
+        ),
+
+        #17684d;
+
+    opacity: .7;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.top-interface {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 22px;
+
+    z-index: 100;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(3,17,39,.97),
+            rgba(3,17,39,.88)
+        );
+
+    border-bottom: 3px solid rgba(255,255,255,.12);
+
+}
+
+
+/* =========================================
+   BACK
+========================================= */
+
+.back-button {
+
+    width: 42px;
+
+    height: 38px;
+
+    border: 2px solid #2476a7;
+
+    border-radius: 6px;
+
+    background: #0b3156;
+
+    color: white;
+
+    font-family: var(--font);
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: .2s;
+
+}
+
+
+.back-button:hover {
+
+    background: #14527d;
+
+    transform: translateX(-3px);
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.map-title {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.map-title small {
+
+    color: #7de8ff;
+
+    font-size: 6px;
+
+}
+
+
+.map-title strong {
+
+    padding: 9px 15px;
+
+    color: white;
+
+    font-size: 10px;
+
+    background: #092448;
+
+    border: 2px solid #28c9f3;
+
+    box-shadow:
+        0 0 15px rgba(40,201,243,.3);
+
+}
+
+
+/* =========================================
+   RESOURCES
+========================================= */
+
+.player-resources {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.resource {
+
+    min-width: 75px;
+
+    padding: 8px 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 5px;
+
+    background: #0b3156;
+
+    border: 2px solid #174e76;
+
+    font-size: 8px;
+
+}
+
+
+/* =========================================
+   MAP
+========================================= */
+
+.world-map {
+
+    position: relative;
+
+    width: min(1100px, 100vw);
+
+    height: calc(100vh - 64px);
+
+    margin: 64px auto 0;
+
+}
+
+
+/* =========================================
+   MAP TITLE
+========================================= */
+
+.map-heading {
+
+    position: absolute;
+
+    top: 4%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 20;
+
+}
+
+
+.map-heading span {
+
+    display: block;
+
+    padding: 10px 17px;
+
+    border-radius: 5px;
+
+    color: #ffffff;
+
+    background: rgba(5,24,55,.88);
+
+    border: 2px solid #36d1f5;
+
+    font-size: 9px;
+
+    box-shadow:
+        0 0 20px rgba(39,213,255,.3);
+
+}
+
+
+/* =========================================
+   PATHS
+========================================= */
+
+.map-paths {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 1;
+
+    overflow: visible;
+
+}
+
+
+.path-line {
+
+    fill: none;
+
+    stroke: var(--yellow);
+
+    stroke-width: 5;
+
+    stroke-dasharray: 10 8;
+
+    filter:
+        drop-shadow(
+            0 0 5px rgba(255,216,61,.7)
+        );
+
+    animation: pathMove 2s linear infinite;
+
+}
+
+
+@keyframes pathMove {
+
+    to {
+
+        stroke-dashoffset: -36;
+
+    }
+
+}
+
+
+/* =========================================
+   WORLD
+========================================= */
+
+.world {
+
+    position: absolute;
+
+    z-index: 10;
+
+    width: 200px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-family: var(--font);
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+
+}
+
+
+.world:hover {
+
+    transform: scale(1.1);
+
+    z-index: 30;
+
+}
+
+
+/* =========================================
+   POSITIONS
+========================================= */
+
+.world-eco {
+
+    left: 10%;
+
+    top: 20%;
+
+}
+
+
+.world-nature {
+
+    right: 10%;
+
+    top: 20%;
+
+}
+
+
+.world-central {
+
+    left: 50%;
+
+    top: 43%;
+
+    transform: translateX(-50%);
+
+}
+
+
+.world-city {
+
+    left: 10%;
+
+    top: 63%;
+
+}
+
+
+.world-digital {
+
+    right: 10%;
+
+    top: 63%;
+
+}
+
+
+.world-central:hover {
+
+    transform:
+        translateX(-50%)
+        scale(1.1);
+
+}
+
+
+/* =========================================
+   ISLAND
+========================================= */
+
+.island {
+
+    position: relative;
+
+    width: 190px;
+
+    height: 125px;
+
+    margin: auto;
+
+    border-radius:
+        48%
+        52%
+        55%
+        45%;
+
+    border: 4px solid rgba(255,255,255,.55);
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #31d8f2,
+            #087bb8 65%,
+            #064b87
+        );
+
+    box-shadow:
+        0 12px 0 rgba(0,0,0,.2),
+        0 0 25px rgba(0,220,255,.35);
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   WATER
+========================================= */
+
+.water {
+
+    position: absolute;
+
+    inset: 8px;
+
+    border-radius: inherit;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #61ecff,
+            #159ed1 45%,
+            #08659d 100%
+        );
+
+}
+
+
+/* =========================================
+   LAND
+========================================= */
+
+.land {
+
+    position: absolute;
+
+    width: 135px;
+
+    height: 82px;
+
+    left: 27px;
+
+    top: 22px;
+
+    border-radius:
+        54%
+        46%
+        52%
+        48%;
+
+    background:
+        radial-gradient(
+            circle at 45% 35%,
+            #b9ef65,
+            #48ba50 55%,
+            #23764b 100%
+        );
+
+    box-shadow:
+        inset -8px -10px 0 rgba(0,0,0,.1);
+
+}
+
+
+/* =========================================
+   CENTRAL ISLAND
+========================================= */
+
+.central-island {
+
+    width: 205px;
+
+    height: 135px;
+
+}
+
+
+.central-island .land {
+
+    width: 150px;
+
+    height: 90px;
+
+    left: 27px;
+
+}
+
+
+/* =========================================
+   WORLD ICON
+========================================= */
+
+.world-icon {
+
+    position: absolute;
+
+    z-index: 8;
+
+    left: 50%;
+
+    top: 35%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 42px;
+
+    filter:
+        drop-shadow(
+            0 4px 3px rgba(0,0,0,.35)
+        );
+
+}
+
+
+/* =========================================
+   TREES
+========================================= */
+
+.tree {
+
+    position: absolute;
+
+    z-index: 7;
+
+    font-size: 25px;
+
+}
+
+
+.tree-1 {
+
+    left: 28px;
+
+    bottom: 18px;
+
+}
+
+
+.tree-2 {
+
+    right: 27px;
+
+    bottom: 13px;
+
+    font-size: 30px;
+
+}
+
+
+.tree-3 {
+
+    left: 55px;
+
+    top: 12px;
+
+    font-size: 21px;
+
+}
+
+
+/* =========================================
+   HOUSE
+========================================= */
+
+.house {
+
+    position: absolute;
+
+    z-index: 9;
+
+    right: 45px;
+
+    bottom: 18px;
+
+    font-size: 25px;
+
+}
+
+
+.central-house {
+
+    left: 50%;
+
+    top: 42%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 35px;
+
+}
+
+
+/* =========================================
+   CITY
+========================================= */
+
+.building {
+
+    position: absolute;
+
+    z-index: 8;
+
+    bottom: 17px;
+
+    font-size: 30px;
+
+}
+
+
+.b1 {
+
+    left: 25px;
+
+}
+
+
+.b2 {
+
+    left: 73px;
+
+    bottom: 15px;
+
+    font-size: 38px;
+
+}
+
+
+.b3 {
+
+    right: 23px;
+
+}
+
+
+/* =========================================
+   DIGITAL
+========================================= */
+
+.tech-1 {
+
+    position: absolute;
+
+    z-index: 8;
+
+    left: 28px;
+
+    bottom: 17px;
+
+    font-size: 29px;
+
+}
+
+
+.tech-2 {
+
+    position: absolute;
+
+    z-index: 8;
+
+    right: 25px;
+
+    bottom: 17px;
+
+    font-size: 28px;
+
+}
+
+
+.signal {
+
+    position: absolute;
+
+    z-index: 9;
+
+    left: 50%;
+
+    top: 20px;
+
+    transform: translateX(-50%);
+
+    font-size: 23px;
+
+}
+
+
+/* =========================================
+   FLAG
+========================================= */
+
+.flag {
+
+    position: absolute;
+
+    z-index: 10;
+
+    right: 35px;
+
+    top: 20px;
+
+    font-size: 20px;
+
+}
+
+
+/* =========================================
+   RIVER
+========================================= */
+
+.river {
+
+    position: absolute;
+
+    z-index: 7;
+
+    width: 35px;
+
+    height: 80px;
+
+    left: 75px;
+
+    top: 20px;
+
+    border-radius: 50%;
+
+    background: rgba(50,210,255,.75);
+
+    transform: rotate(25deg);
+
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+.world-tag {
+
+    position: relative;
+
+    margin: 7px auto 0;
+
+    width: max-content;
+
+    min-width: 130px;
+
+    padding: 7px 12px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #103c65,
+            #082443
+        );
+
+    border: 2px solid #2bd0f3;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 4px 0 rgba(0,0,0,.3);
+
+}
+
+
+.world-tag strong {
+
+    display: block;
+
+    font-size: 8px;
+
+}
+
+
+.world-tag small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #8bb9cf;
+
+    font-size: 5px;
+
+}
+
+
+.central-tag {
+
+    border-color: var(--yellow);
+
+}
+
+
+/* =========================================
+   LOCK
+========================================= */
+
+.lock {
+
+    position: absolute;
+
+    z-index: 20;
+
+    right: 8px;
+
+    top: 7px;
+
+    width: 37px;
+
+    height: 37px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #071a35;
+
+    border: 3px solid #8193a9;
+
+    font-size: 17px;
+
+}
+
+
+/* =========================================
+   LOCKED
+========================================= */
+
+.locked {
+
+    filter: grayscale(.75);
+
+    opacity: .72;
+
+}
+
+
+.locked:hover {
+
+    filter: grayscale(.2);
+
+    opacity: 1;
+
+}
+
+
+/* =========================================
+   INFO PANEL
+========================================= */
+
+.world-panel {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 95px;
+
+    transform: translateX(-50%);
+
+    z-index: 80;
+
+    width: min(680px, 90vw);
+
+    min-height: 105px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 17px 20px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7,30,58,.98),
+            rgba(4,20,42,.98)
+        );
+
+    border: 3px solid #29c9f1;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.45);
+
+}
+
+
+.hidden {
+
+    display: none;
+
+}
+
+
+.panel-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: #0e4264;
+
+    font-size: 34px;
+
+}
+
+
+.panel-text {
+
+    flex: 1;
+
+}
+
+
+.panel-text small {
+
+    color: #6ddfff;
+
+    font-size: 6px;
+
+}
+
+
+.panel-text h2 {
+
+    margin: 7px 0;
+
+    font-size: 13px;
+
+}
+
+
+.panel-text p {
+
+    max-width: 420px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    color: #c7d7e5;
+
+}
+
+
+.panel-button {
+
+    padding: 13px 15px;
+
+    border: 0;
+
+    border-radius: 5px;
+
+    background: var(--yellow);
+
+    color: #182033;
+
+    font-family: var(--font);
+
+    font-size: 7px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 0 #a87900;
+
+}
+
+
+.panel-close {
+
+    position: absolute;
+
+    right: 6px;
+
+    top: 3px;
+
+    border: 0;
+
+    background: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+}
+
+
+/* =========================================
+   GLOBAL PROGRESS
+========================================= */
+
+.global-progress {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 18px;
+
+    transform: translateX(-50%);
+
+    z-index: 70;
+
+    width: min(570px, 82vw);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 15px;
+
+    background: rgba(4,19,40,.95);
+
+    border: 2px solid #1979a7;
+
+    border-radius: 7px;
+
+}
+
+
+.progress-icon {
+
+    font-size: 25px;
+
+}
+
+
+.progress-info {
+
+    flex: 1;
+
+}
+
+
+.progress-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 6px;
+
+    font-size: 7px;
+
+}
+
+
+.progress-top strong {
+
+    color: var(--yellow);
+
+}
+
+
+.progress-track {
+
+    width: 100%;
+
+    height: 11px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #06172d;
+
+}
+
+
+.progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #31df65,
+            #c9ff54
+        );
+
+    box-shadow:
+        0 0 9px #4eff70;
+
+    transition: width 1s ease;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .world-map {
+
+        transform: scale(.85);
+
+        transform-origin: center top;
+
+    }
+
+
+    .world-eco,
+    .world-city {
+
+        left: 2%;
+
+    }
+
+
+    .world-nature,
+    .world-digital {
+
+        right: 2%;
+
+    }
+
+
+    .world-tag strong {
+
+        font-size: 7px;
+
+    }
+
+
+    .map-title strong {
+
+        font-size: 8px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+
+        overflow-y: auto;
+
+    }
+
+
+    .top-interface {
+
+        height: 55px;
+
+        padding: 0 10px;
+
+    }
+
+
+    .map-title small {
+
+        display: none;
+
+    }
+
+
+    .map-title strong {
+
+        font-size: 7px;
+
+        padding: 7px 10px;
+
+    }
+
+
+    .resource {
+
+        min-width: 48px;
+
+        padding: 7px;
+
+        font-size: 6px;
+
+    }
+
+
+    .world-map {
+
+        width: 650px;
+
+        height: 800px;
+
+        margin-left: 50%;
+
+        transform:
+            translateX(-50%)
+            scale(.7);
+
+        transform-origin: top center;
+
+    }
+
+
+    .world-eco,
+    .world-city {
+
+        left: 0;
+
+    }
+
+
+    .world-nature,
+    .world-digital {
+
+        right: 0;
+
+    }
+
+
+    .global-progress {
+
+        bottom: 10px;
+
+        width: 90vw;
+
+    }
+
+}
