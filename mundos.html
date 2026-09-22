@@ -1,496 +1,403 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type4Change | Mundos</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Type4Change | Mapa de Mundos</title>
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="mundos.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mundos.css">
 </head>
-
 
 <body>
 
-    <!-- =====================================
-         FONDO
-    ====================================== -->
+<header class="game-header">
+    <a href="index.html" class="logo">
+        TYPE<span>4</span>CHANGE
+        <small>Write. Act. Change.</small>
+    </a>
 
-    <div class="game-background">
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="lobby.html">🎮 Lobby</a>
+        <a href="mundos.html" class="active">🌎 Mundos</a>
+        <a href="misiones.html">📜 Misiones</a>
+        <a href="logros.html">🏆 Logros</a>
+        <a href="tienda.html">🛒 Tienda</a>
+    </nav>
 
-        <div class="stars"></div>
+    <div class="player">
+        <div class="avatar">👤</div>
 
-        <div class="cloud cloud-a"></div>
-        <div class="cloud cloud-b"></div>
+        <div>
+            <strong>Usuario</strong>
+            <small>Nivel 5</small>
+        </div>
 
-        <div class="mountain mountain-a"></div>
-        <div class="mountain mountain-b"></div>
-
-        <div class="forest"></div>
-
+        <div class="points">
+            ⭐ 520
+        </div>
     </div>
+</header>
 
 
-    <!-- =====================================
-         HEADER
-    ====================================== -->
+<main class="world-page">
 
-    <header class="top-interface">
+    <!-- PANEL IZQUIERDO -->
 
-        <button
-            class="back-button"
-            onclick="goLobby()">
+    <aside class="info-panel">
 
-            <span>◀</span>
+        <h1>THE IMPACT WORLD</h1>
 
-        </button>
+        <h3>Cinco mundos, un mismo propósito</h3>
 
+        <p>
+            Explora, escribe, completa misiones y genera
+            un cambio positivo en el mundo.
+        </p>
 
-        <div class="map-title">
-
-            <small>
-                TYPE4CHANGE
-            </small>
-
-            <strong>
-                MAPA DE MUNDOS
-            </strong>
-
+        <div class="quote">
+            “Unas pocas palabras pueden cambiar muchas cosas.”
+            <span>— TYPE4CHANGE</span>
         </div>
 
-
-        <div class="player-resources">
-
-            <div class="resource impact">
-
-                <span>⭐</span>
-
-                <strong id="impactPoints">
-                    0
-                </strong>
-
-            </div>
+    </aside>
 
 
-            <div class="resource coins">
+    <!-- MAPA -->
 
-                <span>💎</span>
+    <section class="world-map">
 
-                <strong id="coins">
-                    100
-                </strong>
+        <!-- Caminos -->
 
-            </div>
+        <svg class="world-paths"
+             viewBox="0 0 1000 700"
+             preserveAspectRatio="none">
 
-        </div>
-
-    </header>
-
-
-    <!-- =====================================
-         MAPA
-    ====================================== -->
-
-    <main class="world-map">
-
-
-        <!-- =================================
-             TITULO DEL MAPA
-        ================================== -->
-
-        <div class="map-heading">
-
-            <span>
-                THE IMPACT WORLD
-            </span>
-
-        </div>
-
-
-        <!-- =================================
-             CAMINOS
-        ================================== -->
-
-        <svg
-            class="map-paths"
-            viewBox="0 0 1000 650"
-            preserveAspectRatio="none">
-
-            <path
-                d="M 470 330
-                   C 390 275, 320 230, 235 175"
-                class="path-line"/>
-
-            <path
-                d="M 530 330
-                   C 610 275, 690 230, 770 175"
-                class="path-line"/>
-
-            <path
-                d="M 470 355
-                   C 385 410, 315 450, 230 505"
-                class="path-line"/>
-
-            <path
-                d="M 530 355
-                   C 615 410, 690 455, 775 505"
-                class="path-line"/>
+            <path d="M500 360 C390 300 300 220 250 160"/>
+            <path d="M500 360 C620 290 700 220 760 160"/>
+            <path d="M500 360 C390 440 300 520 230 560"/>
+            <path d="M500 360 C630 440 720 510 790 550"/>
 
         </svg>
 
 
-        <!-- =================================
-             MUNDO 01
-        ================================== -->
+        <!-- EDUCACIÓN -->
 
-        <button
-            class="world world-eco unlocked"
-            onclick="selectWorld(1)">
+        <article
+            class="island education"
+            data-world="educacion"
+            data-url="mundo-educacion.html"
+        >
 
-            <div class="island">
+            <div class="island-art">
+                <div class="island-ground"></div>
 
-                <div class="water"></div>
-
-                <div class="land"></div>
-
-                <div class="tree tree-1">🌲</div>
-                <div class="tree tree-2">🌳</div>
-                <div class="tree tree-3">🌲</div>
-
-                <div class="house">
-                    🏡
+                <div class="building school">
+                    🏫
                 </div>
 
-                <div class="world-icon">
-                    🌱
+                <span class="tree tree1">🌳</span>
+                <span class="tree tree2">🌲</span>
+                <span class="book">📚</span>
+            </div>
+
+            <div class="world-card">
+
+                <div class="world-title">
+                    <span>📖</span>
+                    EDUCACIÓN
+                </div>
+
+                <div class="progress-row">
+
+                    <div class="progress">
+                        <div style="width:32%"></div>
+                    </div>
+
+                    <strong>32%</strong>
+
                 </div>
 
             </div>
 
-
-            <div class="world-tag">
-
-                <strong>
-                    ECOLANDIA
-                </strong>
-
-                <small>
-                    MUNDO 01
-                </small>
-
-            </div>
-
-        </button>
+        </article>
 
 
-        <!-- =================================
-             MUNDO 02
-        ================================== -->
+        <!-- PLANETA -->
 
-        <button
-            class="world world-nature locked"
-            onclick="selectWorld(2)">
+        <article
+            class="island planet"
+            data-world="planeta"
+            data-url="mundo-planeta.html"
+        >
 
-            <div class="island">
+            <div class="island-art">
 
-                <div class="water"></div>
+                <div class="island-ground"></div>
 
-                <div class="land"></div>
+                <span class="tree tree1">🌳</span>
+                <span class="tree tree2">🌲</span>
+                <span class="tree tree3">🌳</span>
 
-                <div class="tree tree-1">🌴</div>
-                <div class="tree tree-2">🌳</div>
-                <div class="tree tree-3">🌴</div>
+                <div class="waterfall">💧</div>
 
-                <div class="river"></div>
-
-                <div class="world-icon">
-                    🌿
-                </div>
-
-                <div class="lock">
-                    🔒
-                </div>
+                <span class="solar">▰</span>
+                <span class="wind">✣</span>
 
             </div>
 
+            <div class="world-card">
 
-            <div class="world-tag">
-
-                <strong>
-                    NATURA
-                </strong>
-
-                <small>
-                    MUNDO 02
-                </small>
-
-            </div>
-
-        </button>
-
-
-        <!-- =================================
-             HUB CENTRAL
-        ================================== -->
-
-        <button
-            class="world world-central unlocked"
-            onclick="selectWorld(0)">
-
-            <div class="island central-island">
-
-                <div class="water"></div>
-
-                <div class="land"></div>
-
-                <div class="house central-house">
-                    🏠
+                <div class="world-title">
+                    <span>🌿</span>
+                    PLANETA
                 </div>
 
-                <div class="flag">
-                    🚩
-                </div>
+                <div class="progress-row">
 
-                <div class="world-icon">
-                    ⭐
+                    <div class="progress">
+                        <div style="width:48%"></div>
+                    </div>
+
+                    <strong>48%</strong>
+
                 </div>
 
             </div>
 
-
-            <div class="world-tag central-tag">
-
-                <strong>
-                    COMIENZO
-                </strong>
-
-                <small>
-                    HUB CENTRAL
-                </small>
-
-            </div>
-
-        </button>
+        </article>
 
 
-        <!-- =================================
-             MUNDO 03
-        ================================== -->
+        <!-- COMUNIDAD -->
 
-        <button
-            class="world world-city locked"
-            onclick="selectWorld(3)">
+        <article
+            class="island community"
+            data-world="comunidad"
+            data-url="mundo-comunidad.html"
+        >
 
-            <div class="island">
+            <div class="island-art">
 
-                <div class="water"></div>
+                <div class="island-ground"></div>
 
-                <div class="land"></div>
+                <span class="house house1">🏠</span>
+                <span class="house house2">🏡</span>
 
-                <div class="building b1">
-                    🏢
+                <span class="tree tree1">🌳</span>
+                <span class="tree tree2">🌲</span>
+
+                <div class="community-center">
+                    TYPE4CHANGE
                 </div>
 
-                <div class="building b2">
-                    🏬
-                </div>
-
-                <div class="building b3">
-                    🏢
-                </div>
-
-                <div class="world-icon">
-                    🏙️
-                </div>
-
-                <div class="lock">
-                    🔒
+                <div class="fountain">
+                    🌎
                 </div>
 
             </div>
 
+            <div class="world-card">
 
-            <div class="world-tag">
-
-                <strong>
-                    METRÓPOLIS
-                </strong>
-
-                <small>
-                    MUNDO 03
-                </small>
-
-            </div>
-
-        </button>
-
-
-        <!-- =================================
-             MUNDO 04
-        ================================== -->
-
-        <button
-            class="world world-digital locked"
-            onclick="selectWorld(4)">
-
-            <div class="island">
-
-                <div class="water"></div>
-
-                <div class="land"></div>
-
-                <div class="building tech-1">
-                    💻
+                <div class="world-title">
+                    <span>🤝</span>
+                    COMUNIDAD
                 </div>
 
-                <div class="building tech-2">
-                    🖥️
-                </div>
+                <div class="progress-row">
 
-                <div class="signal">
-                    ⚡
-                </div>
+                    <div class="progress">
+                        <div style="width:27%"></div>
+                    </div>
 
-                <div class="world-icon">
-                    🌐
-                </div>
+                    <strong>27%</strong>
 
-                <div class="lock">
-                    🔒
                 </div>
 
             </div>
 
+        </article>
 
-            <div class="world-tag">
 
-                <strong>
+        <!-- BIENESTAR -->
+
+        <article
+            class="island wellness"
+            data-world="bienestar"
+            data-url="mundo-bienestar.html"
+        >
+
+            <div class="island-art">
+
+                <div class="island-ground"></div>
+
+                <span class="hospital">🏥</span>
+
+                <span class="pink-tree pink1">🌸</span>
+                <span class="pink-tree pink2">🌸</span>
+                <span class="pink-tree pink3">🌸</span>
+
+                <span class="runner">🏃</span>
+
+            </div>
+
+            <div class="world-card">
+
+                <div class="world-title">
+                    <span>❤️</span>
+                    BIENESTAR
+                </div>
+
+                <div class="progress-row">
+
+                    <div class="progress">
+                        <div style="width:19%"></div>
+                    </div>
+
+                    <strong>19%</strong>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- DIGITAL -->
+
+        <article
+            class="island digital"
+            data-world="digital"
+            data-url="mundo-digital.html"
+        >
+
+            <div class="island-art">
+
+                <div class="island-ground"></div>
+
+                <div class="digital-city">
+
+                    <span>▥</span>
+                    <span>▥</span>
+                    <span>▥</span>
+                    <span>▥</span>
+                    <span>▥</span>
+
+                </div>
+
+                <span class="satellite">📡</span>
+
+            </div>
+
+            <div class="world-card">
+
+                <div class="world-title">
+                    <span>💻</span>
                     DIGITAL
-                </strong>
+                </div>
 
-                <small>
-                    MUNDO 04
-                </small>
+                <div class="progress-row">
+
+                    <div class="progress">
+                        <div style="width:14%"></div>
+                    </div>
+
+                    <strong>14%</strong>
+
+                </div>
 
             </div>
 
-        </button>
-
-
-    </main>
-
-
-    <!-- =====================================
-         PANEL DE INFORMACIÓN
-    ====================================== -->
-
-    <section
-        id="worldPanel"
-        class="world-panel hidden">
-
-        <button
-            class="panel-close"
-            onclick="closePanel()">
-
-            ×
-
-        </button>
-
-
-        <div
-            id="panelIcon"
-            class="panel-icon">
-
-            🌱
-
-        </div>
-
-
-        <div class="panel-text">
-
-            <small id="panelNumber">
-                MUNDO 01
-            </small>
-
-            <h2 id="panelTitle">
-                ECOLANDIA
-            </h2>
-
-            <p id="panelDescription">
-                Protege nuestro planeta completando
-                misiones de impacto ambiental.
-            </p>
-
-        </div>
-
-
-        <button
-            class="panel-button"
-            onclick="startWorld()">
-
-            ▶ ENTRAR
-
-        </button>
+        </article>
 
     </section>
 
 
-    <!-- =====================================
-         PROGRESO
-    ====================================== -->
+    <!-- PANEL DERECHO -->
 
-    <section class="global-progress">
+    <aside class="impact-panel">
 
-        <div class="progress-icon">
+        <h2>🌎 TU IMPACTO GLOBAL</h2>
+
+        <div class="global-progress">
+
+            <div class="progress">
+                <div style="width:32%"></div>
+            </div>
+
+            <strong>32%</strong>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div>
+                <span>📩 Misiones completadas</span>
+                <strong>8</strong>
+            </div>
+
+            <div>
+                <span>📄 Palabras escritas</span>
+                <strong>1,245</strong>
+            </div>
+
+            <div>
+                <span>⭐ Impact Points</span>
+                <strong>2,580</strong>
+            </div>
+
+            <div>
+                <span>🌱 Zonas restauradas</span>
+                <strong>3/5</strong>
+            </div>
+
+        </div>
+
+
+        <div class="impact-message">
+            🌱
+            <p>
+                ¡Sigue escribiendo para lograr
+                un mejor mundo!
+            </p>
+        </div>
+
+    </aside>
+
+</main>
+
+
+<!-- MODAL AL SELECCIONAR -->
+
+<div class="world-modal" id="worldModal">
+
+    <div class="modal-content">
+
+        <button id="closeModal">×</button>
+
+        <div id="modalIcon" class="modal-icon">
             🌎
         </div>
 
+        <h2 id="modalTitle">
+            Mundo
+        </h2>
 
-        <div class="progress-info">
+        <p id="modalDescription">
+            Explora este mundo y completa sus misiones.
+        </p>
 
-            <div class="progress-top">
+        <button id="enterWorld" class="enter-btn">
+            ENTRAR AL MUNDO
+        </button>
 
-                <span>
-                    IMPACTO GLOBAL
-                </span>
+    </div>
 
-                <strong id="impactPercentage">
-                    0%
-                </strong>
-
-            </div>
-
-
-            <div class="progress-track">
-
-                <div
-                    id="impactProgress"
-                    class="progress-fill">
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
+</div>
 
 
-    <script src="mundos.js"></script>
+<script src="mundos.js"></script>
 
 </body>
-
 </html>
