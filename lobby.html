@@ -9,432 +9,457 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="lobby.css">
 </head>
 
 <body>
 
-<main class="game-world">
+<main class="game">
 
-    <!-- =========================
-         FONDO
-    ========================== -->
+    <!-- ========================================
+         BARRA SUPERIOR
+    ========================================= -->
 
-    <div class="sky"></div>
+    <header class="game-header">
+        <span>★ LOBBY</span>
+        <span>/</span>
+        <span>MENÚ PRINCIPAL</span>
+    </header>
 
-    <div class="sun"></div>
 
-    <div class="cloud cloud-1"></div>
-    <div class="cloud cloud-2"></div>
-    <div class="cloud cloud-3"></div>
+    <!-- ========================================
+         MAPA DEL LOBBY
+    ========================================= -->
 
-    <div class="mountains mountains-back"></div>
-    <div class="mountains mountains-front"></div>
+    <section class="world">
 
-    <div class="ground"></div>
+        <!-- TEXTURA -->
+        <div class="grass-texture"></div>
 
-    <!-- Decoración -->
-    <div class="grass grass-1"></div>
-    <div class="grass grass-2"></div>
-    <div class="grass grass-3"></div>
-    <div class="grass grass-4"></div>
-    <div class="grass grass-5"></div>
-    <div class="grass grass-6"></div>
+        <!-- CAMINOS -->
+        <div class="road road-horizontal"></div>
+        <div class="road road-vertical"></div>
 
-    <!-- =========================
-         ÁRBOLES
-    ========================== -->
+        <div class="road-circle"></div>
 
-    <div class="tree tree-1">
-        <div class="tree-shadow"></div>
-        <div class="tree-trunk"></div>
-        <div class="tree-crown crown-a"></div>
-        <div class="tree-crown crown-b"></div>
-        <div class="tree-crown crown-c"></div>
-    </div>
+        <!-- ================================
+             BOSQUES
+        ================================= -->
 
-    <div class="tree tree-2">
-        <div class="tree-shadow"></div>
-        <div class="tree-trunk"></div>
-        <div class="tree-crown crown-a"></div>
-        <div class="tree-crown crown-b"></div>
-        <div class="tree-crown crown-c"></div>
-    </div>
+        <div class="forest forest-left-top"></div>
+        <div class="forest forest-right-top"></div>
+        <div class="forest forest-left-bottom"></div>
+        <div class="forest forest-right-bottom"></div>
 
-    <div class="tree tree-3">
-        <div class="tree-shadow"></div>
-        <div class="tree-trunk"></div>
-        <div class="tree-crown crown-a"></div>
-        <div class="tree-crown crown-b"></div>
-        <div class="tree-crown crown-c"></div>
-    </div>
 
-    <div class="tree tree-4">
-        <div class="tree-shadow"></div>
-        <div class="tree-trunk"></div>
-        <div class="tree-crown crown-a"></div>
-        <div class="tree-crown crown-b"></div>
-        <div class="tree-crown crown-c"></div>
-    </div>
+        <!-- ================================
+             CASAS SUPERIORES
+        ================================= -->
 
-    <!-- =========================
-         CAMINOS
-    ========================== -->
-
-    <div class="path path-main"></div>
-    <div class="path path-left"></div>
-    <div class="path path-right"></div>
-
-    <!-- =========================
-         PLAZA CENTRAL
-    ========================== -->
-
-    <div class="central-plaza">
-        <div class="plaza-ring"></div>
-        <div class="plaza-center"></div>
-
-        <div class="fountain">
-            <div class="water-ring"></div>
-            <div class="water"></div>
-            <div class="fountain-column"></div>
-            <div class="fountain-top"></div>
-
-            <span class="water-drop drop-1">◆</span>
-            <span class="water-drop drop-2">◆</span>
-            <span class="water-drop drop-3">◆</span>
-        </div>
-    </div>
-
-    <!-- =========================
-         ESTANQUES
-    ========================== -->
-
-    <div class="pond pond-left">
-        <div class="pond-shine"></div>
-        <div class="lily lily-1"></div>
-        <div class="lily lily-2"></div>
-    </div>
-
-    <div class="pond pond-right">
-        <div class="pond-shine"></div>
-        <div class="lily lily-3"></div>
-    </div>
-
-    <!-- =========================
-         EDIFICIO MISIONES
-    ========================== -->
-
-    <button class="building missions-building" onclick="openMissions()">
-
-        <div class="building-shadow"></div>
-
-        <div class="roof roof-green">
-            <div class="roof-highlight"></div>
+        <div class="house house-1">
+            <div class="house-roof red"></div>
+            <div class="house-body">
+                <div class="house-window"></div>
+                <div class="house-door"></div>
+                <div class="house-window"></div>
+            </div>
         </div>
 
-        <div class="building-wall">
+        <div class="house house-2">
+            <div class="house-roof orange"></div>
+            <div class="house-body">
+                <div class="house-window"></div>
+                <div class="house-door"></div>
+                <div class="house-window"></div>
+            </div>
+        </div>
 
-            <div class="sign">
+        <div class="house house-3">
+            <div class="house-roof blue"></div>
+            <div class="house-body">
+                <div class="house-window"></div>
+                <div class="house-door"></div>
+                <div class="house-window"></div>
+            </div>
+        </div>
+
+        <div class="house house-4">
+            <div class="house-roof purple"></div>
+            <div class="house-body">
+                <div class="house-window"></div>
+                <div class="house-door"></div>
+                <div class="house-window"></div>
+            </div>
+        </div>
+
+
+        <!-- ================================
+             EDIFICIO DE MISIONES
+        ================================= -->
+
+        <button class="special-building mission-house" onclick="openMissions()">
+
+            <div class="special-roof green-roof">
                 <span>!</span>
             </div>
 
-            <div class="window window-left">
-                <span></span>
+            <div class="special-body">
+                <div class="special-window"></div>
+                <div class="special-door"></div>
+                <div class="special-window"></div>
             </div>
 
-            <div class="door">
-                <div class="door-knob"></div>
+            <div class="building-name">
+                MISIONES
             </div>
 
-            <div class="window window-right">
-                <span></span>
-            </div>
+        </button>
 
-        </div>
 
-        <span class="building-label">
-            MISIONES
-        </span>
+        <!-- ================================
+             TIENDA
+        ================================= -->
 
-    </button>
+        <button class="special-building store-house" onclick="openShop()">
 
-    <!-- =========================
-         EDIFICIO TIENDA
-    ========================== -->
-
-    <button class="building shop-building" onclick="openShop()">
-
-        <div class="building-shadow"></div>
-
-        <div class="roof roof-purple">
-            <div class="roof-highlight"></div>
-        </div>
-
-        <div class="building-wall">
-
-            <div class="sign shop-sign">
+            <div class="special-roof purple-roof">
                 <span>★</span>
             </div>
 
-            <div class="window window-left">
-                <span></span>
+            <div class="special-body">
+                <div class="special-window"></div>
+                <div class="special-door"></div>
+                <div class="special-window"></div>
             </div>
 
-            <div class="door">
-                <div class="door-knob"></div>
+            <div class="building-name">
+                TIENDA
             </div>
 
-            <div class="window window-right">
-                <span></span>
+        </button>
+
+
+        <!-- ================================
+             ESTANQUES
+        ================================= -->
+
+        <div class="pond pond-left">
+            <div class="water-shine shine-1"></div>
+            <div class="water-shine shine-2"></div>
+
+            <div class="lily lily-1"></div>
+            <div class="lily lily-2"></div>
+        </div>
+
+        <div class="pond pond-right">
+            <div class="water-shine shine-1"></div>
+            <div class="water-shine shine-2"></div>
+
+            <div class="lily lily-1"></div>
+            <div class="lily lily-2"></div>
+        </div>
+
+
+        <!-- ================================
+             PLAZA CENTRAL
+        ================================= -->
+
+        <div class="plaza">
+
+            <div class="plaza-floor"></div>
+
+            <div class="fountain">
+
+                <div class="fountain-shadow"></div>
+
+                <div class="fountain-base">
+                    <div class="fountain-water"></div>
+                </div>
+
+                <div class="fountain-column"></div>
+
+                <div class="fountain-top"></div>
+
+                <div class="water-stream stream-left"></div>
+                <div class="water-stream stream-right"></div>
+
+            </div>
+
+            <div class="plaza-sign">
+                TYPE<span>4</span>CHANGE
             </div>
 
         </div>
 
-        <span class="building-label">
-            TIENDA
-        </span>
 
-    </button>
+        <!-- ================================
+             FLORES
+        ================================= -->
 
-    <!-- =========================
-         BANCAS
-    ========================== -->
+        <div class="flowers flowers-1">✿ ✿ ✿</div>
+        <div class="flowers flowers-2">✿ ✿</div>
+        <div class="flowers flowers-3">✿ ✿ ✿</div>
+        <div class="flowers flowers-4">✿ ✿</div>
 
-    <div class="bench bench-1">
-        <div class="bench-seat"></div>
-        <div class="bench-leg"></div>
-    </div>
 
-    <div class="bench bench-2">
-        <div class="bench-seat"></div>
-        <div class="bench-leg"></div>
-    </div>
+        <!-- ================================
+             BANCAS
+        ================================= -->
 
-    <div class="bench bench-3">
-        <div class="bench-seat"></div>
-        <div class="bench-leg"></div>
-    </div>
+        <div class="bench bench-1">
+            <div></div>
+        </div>
 
-    <!-- =========================
-         NPCs
-    ========================== -->
+        <div class="bench bench-2">
+            <div></div>
+        </div>
 
-    <div class="npc npc-1">
-        <div class="npc-shadow"></div>
-        <div class="npc-hair"></div>
-        <div class="npc-head"></div>
-        <div class="npc-body"></div>
-        <div class="npc-leg"></div>
-    </div>
+        <div class="bench bench-3">
+            <div></div>
+        </div>
 
-    <div class="npc npc-2">
-        <div class="npc-shadow"></div>
-        <div class="npc-hair"></div>
-        <div class="npc-head"></div>
-        <div class="npc-body"></div>
-        <div class="npc-leg"></div>
-    </div>
 
-    <!-- =========================
-         PERSONAJE
-    ========================== -->
+        <!-- ================================
+             NPC 1
+        ================================= -->
 
-    <div class="player-area">
+        <div class="npc npc-one">
 
-        <div class="player-shadow"></div>
+            <div class="npc-alert">!</div>
 
-        <div class="player-character">
+            <div class="npc-shadow"></div>
 
-            <div class="player-hair"></div>
-
-            <div class="player-head">
-                <div class="eye eye-left"></div>
-                <div class="eye eye-right"></div>
+            <div class="npc-character">
+                <div class="npc-hair"></div>
+                <div class="npc-face"></div>
+                <div class="npc-shirt orange-shirt"></div>
+                <div class="npc-feet"></div>
             </div>
 
-            <div class="player-body"></div>
-
-            <div class="player-arm arm-left"></div>
-            <div class="player-arm arm-right"></div>
-
-            <div class="player-leg leg-left"></div>
-            <div class="player-leg leg-right"></div>
-
         </div>
 
-        <div class="player-name">
-            USUARIO
-        </div>
 
-    </div>
+        <!-- ================================
+             NPC 2
+        ================================= -->
 
-    <!-- =========================
-         MARCAS DE MISIÓN
-    ========================== -->
+        <div class="npc npc-two">
 
-    <div class="quest-mark quest-1">!</div>
-    <div class="quest-mark quest-2">!</div>
+            <div class="npc-shadow"></div>
 
-    <!-- =========================
-         TÍTULO
-    ========================== -->
-
-    <header class="world-title">
-
-        <div class="title-main">
-            TYPE<span>4</span>CHANGE
-        </div>
-
-        <div class="title-sub">
-            COMMUNITY PARK
-        </div>
-
-    </header>
-
-    <!-- =========================
-         HUD JUGADOR
-    ========================== -->
-
-    <section class="player-hud">
-
-        <div class="avatar">
-            <div class="avatar-hair"></div>
-            <div class="avatar-face">
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-        <div class="player-info">
-
-            <h2>USUARIO</h2>
-
-            <p>
-                NIVEL <strong id="playerLevel">3</strong>
-            </p>
-
-            <div class="xp-container">
-                <div class="xp-bar" id="xpBar"></div>
+            <div class="npc-character">
+                <div class="npc-hair npc-hair-girl"></div>
+                <div class="npc-face"></div>
+                <div class="npc-shirt pink-shirt"></div>
+                <div class="npc-feet"></div>
             </div>
 
-            <small>
-                <span id="xpValue">120</span> / 300 XP
-            </small>
+        </div>
 
+
+        <!-- ================================
+             NPC 3
+        ================================= -->
+
+        <div class="npc npc-three">
+
+            <div class="npc-alert">!</div>
+
+            <div class="npc-shadow"></div>
+
+            <div class="npc-character">
+                <div class="npc-hair blond-hair"></div>
+                <div class="npc-face"></div>
+                <div class="npc-shirt blue-shirt"></div>
+                <div class="npc-feet"></div>
+            </div>
+
+        </div>
+
+
+        <!-- ================================
+             JUGADOR
+        ================================= -->
+
+        <div class="player-area" id="player">
+
+            <div class="player-shadow"></div>
+
+            <div class="player">
+
+                <div class="player-hair"></div>
+
+                <div class="player-face">
+                    <span class="eye left-eye"></span>
+                    <span class="eye right-eye"></span>
+                </div>
+
+                <div class="player-shirt"></div>
+
+                <div class="player-legs"></div>
+
+            </div>
+
+            <div class="player-tag">
+                USUARIO
+            </div>
+
+        </div>
+
+
+        <!-- ========================================
+             HUD PERFIL
+        ========================================= -->
+
+        <section class="player-hud">
+
+            <div class="avatar">
+
+                <div class="avatar-hair"></div>
+
+                <div class="avatar-face">
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="player-info">
+
+                <strong>USUARIO</strong>
+
+                <div class="level">
+                    Nivel <b id="playerLevel">3</b>
+                </div>
+
+                <div class="xp">
+
+                    <div class="xp-bar">
+                        <div class="xp-progress" id="xpBar"></div>
+                    </div>
+
+                    <small>
+                        <span id="xpValue">120</span> / 300 XP
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             MONEDAS
+        ========================================= -->
+
+        <div class="top-controls">
+
+            <div class="currency">
+                <span>★</span>
+                <strong id="coins">520</strong>
+            </div>
+
+            <div class="gem-counter">
+                <span>◆</span>
+                <strong>12</strong>
+            </div>
+
+            <button onclick="openSettings()" class="settings">
+                ⚙
+            </button>
+
+        </div>
+
+
+        <!-- ========================================
+             MENÚ DERECHO
+        ========================================= -->
+
+        <nav class="side-menu">
+
+            <button onclick="openMissions()">
+                <span>★</span>
+                MISIONES
+            </button>
+
+            <button onclick="openWorlds()">
+                <span>★</span>
+                MUNDOS
+            </button>
+
+            <button onclick="openCharacter()">
+                <span>★</span>
+                PERSONAJE
+            </button>
+
+            <button onclick="openAchievements()">
+                <span>★</span>
+                LOGROS
+            </button>
+
+            <button onclick="openShop()">
+                <span>★</span>
+                TIENDA
+            </button>
+
+        </nav>
+
+
+        <!-- ========================================
+             DIÁLOGO INFERIOR
+        ========================================= -->
+
+        <div class="dialog-box">
+
+            <div class="dialog-avatar">
+
+                <div class="dialog-hair"></div>
+                <div class="dialog-face"></div>
+
+            </div>
+
+            <div class="dialog-content">
+
+                <strong>GUÍA</strong>
+
+                <p id="dialogText">
+                    Aquí comienza tu aventura.<br>
+                    Explora, escribe y forma parte del cambio.
+                </p>
+
+            </div>
+
+            <div class="dialog-next">
+                ▼
+            </div>
+
+        </div>
+
+
+        <!-- CONTROLES -->
+        <div class="movement-tip">
+            <span>WASD</span>
+            MOVERSE
         </div>
 
     </section>
 
-    <!-- =========================
-         HUD SUPERIOR DERECHO
-    ========================== -->
 
-    <div class="top-right">
-
-        <div class="currency">
-            <span class="coin-icon">★</span>
-            <strong id="coins">520</strong>
-        </div>
-
-        <button class="hud-button" onclick="openSettings()">
-            ⚙
-        </button>
-
-        <button class="hud-button notification" onclick="showNotification()">
-            🔔
-            <b>1</b>
-        </button>
-
-    </div>
-
-    <!-- =========================
-         MENSAJE DE BIENVENIDA
-    ========================== -->
-
-    <div class="welcome-box">
-
-        <div class="welcome-icon">
-            !
-        </div>
-
-        <div>
-
-            <strong>
-                ¡BIENVENIDO DE NUEVO!
-            </strong>
-
-            <p>
-                Hoy puedes hacer la diferencia.
-                Elige una misión para comenzar.
-            </p>
-
-        </div>
-
-    </div>
-
-    <!-- =========================
-         BOTONES DEL MUNDO
-    ========================== -->
-
-    <button class="world-button world-button-left" onclick="openWorlds()">
-        <span class="button-icon">◎</span>
-        <span>EXPLORA MUNDOS</span>
-    </button>
-
-    <button class="world-button world-button-achievements" onclick="openAchievements()">
-        <span class="button-icon">★</span>
-        <span>LOGROS</span>
-    </button>
-
-    <button class="world-button world-button-character" onclick="openCharacter()">
-        <span class="button-icon">●</span>
-        <span>PERSONAJE</span>
-    </button>
-
-    <!-- =========================
-         MENÚ INFERIOR
-    ========================== -->
-
-    <nav class="bottom-menu">
-
-        <button class="menu-item active" onclick="openMissions()">
-            <span>!</span>
-            <label>MISIONES</label>
-        </button>
-
-        <button class="menu-item" onclick="openWorlds()">
-            <span>◎</span>
-            <label>MUNDOS</label>
-        </button>
-
-        <button class="menu-item" onclick="openCharacter()">
-            <span>●</span>
-            <label>PERSONAJE</label>
-        </button>
-
-        <button class="menu-item" onclick="openAchievements()">
-            <span>★</span>
-            <label>LOGROS</label>
-        </button>
-
-        <button class="menu-item" onclick="openShop()">
-            <span>◆</span>
-            <label>TIENDA</label>
-        </button>
-
-    </nav>
-
-    <!-- =========================
+    <!-- ========================================
          MODAL
-    ========================== -->
+    ========================================= -->
 
     <div class="modal" id="gameModal">
 
         <div class="modal-box">
 
-            <button class="close-modal" onclick="closeModal()">
+            <button
+                class="close-modal"
+                onclick="closeModal()"
+            >
                 ×
             </button>
 

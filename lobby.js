@@ -415,3 +415,255 @@ document.addEventListener(
 
     }
 );
+/* =========================================
+   MOVIMIENTO DEL PERSONAJE
+========================================= */
+
+const player = document.getElementById("player");
+
+const keys = {};
+
+let playerX = 50;
+let playerY = 67;
+
+const playerSpeed = 0.32;
+
+
+/* =========================================
+   TECLAS PRESIONADAS
+========================================= */
+
+document.addEventListener("keydown", function(event) {
+
+    const key = event.key.toLowerCase();
+
+    keys[key] = true;
+
+    if (
+        key === "w" ||
+        key === "a" ||
+        key === "s" ||
+        key === "d" ||
+        event.key.startsWith("Arrow")
+    ) {
+        event.preventDefault();
+    }
+
+});
+
+
+/* =========================================
+   TECLAS LIBERADAS
+========================================= */
+
+document.addEventListener("keyup", function(event) {
+
+    keys[event.key.toLowerCase()] = false;
+
+});
+
+
+/* =========================================
+   ACTUALIZAR POSICIÓN
+========================================= */
+
+function updatePlayer() {
+
+    let moving = false;
+
+
+    /* ARRIBA */
+
+    if (
+        keys["w"] ||
+        keys["arrowup"]
+    ) {
+
+        playerY -= playerSpeed;
+
+        moving = true;
+    }
+
+
+    /* ABAJO */
+
+    if (
+        keys["s"] ||
+        keys["arrowdown"]
+    ) {
+
+        playerY += playerSpeed;
+
+        moving = true;
+    }
+
+
+    /* IZQUIERDA */
+
+    if (
+        keys["a"] ||
+        keys["arrowleft"]
+    ) {
+
+        playerX -= playerSpeed;
+
+        moving = true;
+
+        player.classList.add("looking-left");
+        player.classList.remove("looking-right");
+    }
+
+
+    /* DERECHA */
+
+    if (
+        keys["d"] ||
+        keys["arrowright"]
+    ) {
+
+        playerX += playerSpeed;
+
+        moving = true;
+
+        player.classList.add("looking-right");
+        player.classList.remove("looking-left");
+    }
+
+
+    /* =========================================
+       LÍMITES DEL MAPA
+    ========================================= */
+
+    playerX = Math.max(
+        4,
+        Math.min(
+            94,
+            playerX
+        )
+    );
+
+    playerY = Math.max(
+        12,
+        Math.min(
+            87,
+            playerY
+        )
+    );
+
+
+    /* =========================================
+       ACTUALIZAR HTML
+    ========================================= */
+
+    player.style.left =
+        playerX + "%";
+
+    player.style.top =
+        playerY + "%";
+
+
+    /* =========================================
+       ANIMACIÓN CAMINANDO
+    ========================================= */
+
+    if (moving) {
+
+        player.classList.add(
+            "walking"
+        );
+
+    } else {
+
+        player.classList.remove(
+            "walking"
+        );
+
+    }
+
+
+    checkPlayerZones();
+
+    requestAnimationFrame(
+        updatePlayer
+    );
+
+}
+
+
+/* =========================================
+   ZONAS DE INTERACCIÓN
+========================================= */
+
+function checkPlayerZones() {
+
+    const dialog =
+        document.getElementById(
+            "dialogText"
+        );
+
+
+    /* FUENTE */
+
+    if (
+        playerX > 43 &&
+        playerX < 57 &&
+        playerY > 38 &&
+        playerY < 61
+    ) {
+
+        dialog.innerHTML =
+            "Esta es la Plaza del Cambio.<br>" +
+            "Desde aquí puedes comenzar tu aventura.";
+
+        return;
+    }
+
+
+    /* MISIONES */
+
+    if (
+        playerX < 24 &&
+        playerY > 25 &&
+        playerY < 58
+    ) {
+
+        dialog.innerHTML =
+            "¡Encontraste el Centro de Misiones!<br>" +
+            "Acércate para descubrir nuevos desafíos.";
+
+        return;
+    }
+
+
+    /* TIENDA */
+
+    if (
+        playerX > 76 &&
+        playerY > 25 &&
+        playerY < 58
+    ) {
+
+        dialog.innerHTML =
+            "Esta es la Tienda del Cambio.<br>" +
+            "Usa tus Impact Points para conseguir mejoras.";
+
+        return;
+    }
+
+
+    /* MENSAJE NORMAL */
+
+    dialog.innerHTML =
+        "Explora libremente el lobby.<br>" +
+        "Usa WASD o las flechas para moverte.";
+
+}
+
+
+/* =========================================
+   COMENZAR GAME LOOP
+========================================= */
+
+requestAnimationFrame(
+    updatePlayer
+);
