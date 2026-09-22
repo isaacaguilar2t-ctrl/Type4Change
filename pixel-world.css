@@ -1,0 +1,1185 @@
+/* ============================================
+   TYPE4CHANGE
+   PIXEL WORLD ENGINE
+   SIN IMÁGENES
+============================================ */
+
+.pixel-world {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+    image-rendering: pixelated;
+
+    background:
+        linear-gradient(
+            #46caff 0%,
+            #76dcff 35%,
+            #b9edff 55%,
+            #38b9dd 56%,
+            #058bbd 100%
+        );
+}
+
+
+/* ============================================
+   CIELO
+============================================ */
+
+.sky {
+
+    position: absolute;
+
+    width: 100%;
+    height: 47%;
+
+    top: 0;
+
+    background:
+
+        linear-gradient(
+            #42c7fa,
+            #8fe2ff
+        );
+}
+
+
+/* NUBES */
+
+.cloud {
+
+    position: absolute;
+
+    width: 110px;
+    height: 25px;
+
+    background: white;
+
+    box-shadow:
+
+        8px 8px 0 #d7f3ff,
+
+        -8px 8px 0 #d7f3ff,
+
+        0 16px 0 #bce9fa;
+
+    animation:
+        cloudMove
+        22s
+        linear
+        infinite;
+}
+
+
+.cloud i {
+
+    position: absolute;
+
+    display: block;
+
+    width: 38px;
+    height: 38px;
+
+    background: white;
+}
+
+
+.cloud i:nth-child(1) {
+
+    left: 15px;
+    top: -15px;
+}
+
+
+.cloud i:nth-child(2) {
+
+    left: 45px;
+    top: -25px;
+}
+
+
+.cloud i:nth-child(3) {
+
+    right: 8px;
+    top: -10px;
+}
+
+
+.cloud-1 {
+
+    top: 13%;
+    left: 8%;
+}
+
+
+.cloud-2 {
+
+    top: 8%;
+    left: 55%;
+
+    transform: scale(.7);
+}
+
+
+.cloud-3 {
+
+    top: 22%;
+    left: 82%;
+
+    transform: scale(.8);
+}
+
+
+@keyframes cloudMove {
+
+    0% {
+        translate: 0;
+    }
+
+    50% {
+        translate: 35px;
+    }
+
+    100% {
+        translate: 0;
+    }
+
+}
+
+
+/* ============================================
+   MONTAÑAS
+============================================ */
+
+.mountains {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 24%;
+
+    height: 30%;
+
+    z-index: 2;
+}
+
+
+.mountain {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 320px;
+    height: 240px;
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 100%,
+            0 100%
+        );
+
+    background:
+
+        linear-gradient(
+            135deg,
+
+            #b9f0ff 0 20%,
+
+            #75b7d5 21% 42%,
+
+            #4683a5 43% 65%,
+
+            #286b87 66%
+        );
+}
+
+
+.mountain-1 {
+
+    left: -7%;
+
+    transform: scale(.8);
+}
+
+
+.mountain-2 {
+
+    left: 15%;
+
+    transform: scale(.55);
+}
+
+
+.mountain-3 {
+
+    right: -5%;
+
+    transform: scale(.95);
+}
+
+
+/* ============================================
+   CIUDAD
+============================================ */
+
+.city {
+
+    position: absolute;
+
+    top: 32%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 350px;
+    height: 160px;
+
+    z-index: 3;
+}
+
+
+.building {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 35px;
+
+    background:
+
+        repeating-linear-gradient(
+            to bottom,
+
+            #70d7ec 0 8px,
+
+            #1e779d 8px 13px
+        );
+
+    border:
+
+        4px solid #176282;
+
+    box-shadow:
+
+        inset 6px 0
+        rgba(255,255,255,.15);
+}
+
+
+.b1 {
+    left: 10px;
+    height: 60px;
+}
+
+
+.b2 {
+    left: 55px;
+    height: 110px;
+}
+
+
+.b3 {
+    left: 100px;
+    height: 75px;
+}
+
+
+.b4 {
+    left: 150px;
+    height: 145px;
+}
+
+
+.b5 {
+    left: 200px;
+    height: 90px;
+}
+
+
+.b6 {
+    left: 245px;
+    height: 125px;
+}
+
+
+.b7 {
+    left: 295px;
+    height: 65px;
+}
+
+
+/* ============================================
+   LAGO
+============================================ */
+
+.lake {
+
+    position: absolute;
+
+    left: 13%;
+    right: 13%;
+
+    top: 43%;
+    bottom: 0;
+
+    z-index: 4;
+
+    clip-path:
+
+        polygon(
+
+            18% 0,
+
+            82% 0,
+
+            100% 100%,
+
+            0 100%
+        );
+
+    background:
+
+        repeating-linear-gradient(
+
+            0deg,
+
+            #087fb4 0 9px,
+
+            #0a96c8 10px 17px,
+
+            #22b9dd 18px 22px
+        );
+}
+
+
+.water-line {
+
+    position: absolute;
+
+    height: 5px;
+
+    background:
+        #91efff;
+
+    opacity: .7;
+}
+
+
+.line-1 {
+
+    width: 130px;
+
+    left: 15%;
+
+    top: 18%;
+}
+
+
+.line-2 {
+
+    width: 90px;
+
+    right: 22%;
+
+    top: 34%;
+}
+
+
+.line-3 {
+
+    width: 160px;
+
+    left: 35%;
+
+    top: 52%;
+}
+
+
+.line-4 {
+
+    width: 120px;
+
+    right: 12%;
+
+    top: 72%;
+}
+
+
+/* ============================================
+   TIERRA
+============================================ */
+
+.land {
+
+    position: absolute;
+
+    z-index: 5;
+
+    bottom: 0;
+
+    width: 38%;
+    height: 52%;
+
+    background:
+
+        repeating-linear-gradient(
+
+            135deg,
+
+            #65b944 0 15px,
+
+            #58a83a 15px 30px
+        );
+
+    border-top:
+
+        12px solid
+        #87d957;
+}
+
+
+.left-land {
+
+    left: -7%;
+
+    clip-path:
+
+        polygon(
+            0 0,
+            70% 5%,
+            100% 30%,
+            72% 55%,
+            92% 100%,
+            0 100%
+        );
+}
+
+
+.right-land {
+
+    right: -7%;
+
+    clip-path:
+
+        polygon(
+            30% 5%,
+            100% 0,
+            100% 100%,
+            8% 100%,
+            28% 55%,
+            0 30%
+        );
+}
+
+
+/* ============================================
+   ÁRBOLES
+============================================ */
+
+.tree {
+
+    position: absolute;
+
+    width: 60px;
+    height: 90px;
+}
+
+
+.leaves {
+
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    background:
+        #38a842;
+
+    border:
+        6px solid
+        #176c31;
+
+    box-shadow:
+
+        -15px 12px 0 #42ba48,
+
+        15px 12px 0 #238936,
+
+        0 -15px 0 #5dcb50;
+}
+
+
+.trunk {
+
+    position: absolute;
+
+    width: 15px;
+    height: 42px;
+
+    background:
+        #7b4a28;
+
+    border:
+
+        4px solid
+        #53311e;
+
+    left: 21px;
+
+    bottom: 0;
+}
+
+
+.tree-1 {
+
+    left: 15%;
+    top: 22%;
+}
+
+
+.tree-2 {
+
+    left: 43%;
+    top: 50%;
+
+    transform: scale(.75);
+}
+
+
+.tree-3 {
+
+    left: 65%;
+    top: 20%;
+
+    transform: scale(.85);
+}
+
+
+.tree-4 {
+
+    right: 20%;
+    top: 32%;
+}
+
+
+.tree-5 {
+
+    right: 50%;
+    top: 58%;
+
+    transform: scale(.7);
+}
+
+
+/* ============================================
+   CASAS
+============================================ */
+
+.house {
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    z-index: 10;
+}
+
+
+.house-1 {
+
+    left: 25%;
+    top: 35%;
+}
+
+
+.house-2 {
+
+    right: 28%;
+    top: 20%;
+}
+
+
+.roof {
+
+    position: absolute;
+
+    width: 110px;
+    height: 55px;
+
+    background:
+        #dc6d36;
+
+    clip-path:
+
+        polygon(
+            50% 0,
+            100% 100%,
+            0 100%
+        );
+
+    border-bottom:
+
+        7px solid
+        #8c4227;
+}
+
+
+.house-body {
+
+    position: absolute;
+
+    left: 10px;
+    top: 48px;
+
+    width: 90px;
+    height: 60px;
+
+    background:
+        #f2d795;
+
+    border:
+        6px solid
+        #8f6237;
+}
+
+
+.window {
+
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    left: 12px;
+    top: 15px;
+
+    background:
+        #54c8e8;
+
+    border:
+        4px solid
+        #67472c;
+}
+
+
+.door {
+
+    position: absolute;
+
+    width: 22px;
+    height: 35px;
+
+    right: 12px;
+    bottom: 0;
+
+    background:
+        #91482e;
+
+    border:
+        4px solid
+        #62301f;
+}
+
+
+/* ============================================
+   PUENTE
+============================================ */
+
+.bridge {
+
+    position: absolute;
+
+    left: 24%;
+
+    bottom: 11%;
+
+    width: 170px;
+    height: 60px;
+
+    z-index: 7;
+
+    transform:
+        rotate(-8deg);
+}
+
+
+.bridge span {
+
+    display: inline-block;
+
+    width: 30px;
+    height: 50px;
+
+    margin-right: -2px;
+
+    background:
+        #bd7a3e;
+
+    border:
+        4px solid
+        #754726;
+}
+
+
+/* ============================================
+   ACANTILADO
+============================================ */
+
+.cliff {
+
+    position: absolute;
+
+    right: -3%;
+
+    bottom: -2%;
+
+    width: 34%;
+    height: 32%;
+
+    z-index: 8;
+
+    background:
+
+        repeating-linear-gradient(
+
+            90deg,
+
+            #865537 0 25px,
+
+            #71442e 25px 45px,
+
+            #9d6540 45px 60px
+        );
+
+    clip-path:
+
+        polygon(
+            10% 0,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+}
+
+
+.grass {
+
+    position: absolute;
+
+    top: 0;
+
+    width: 100%;
+    height: 35px;
+
+    background:
+        #50ad3e;
+
+    border-bottom:
+
+        8px solid
+        #327e31;
+}
+
+
+/* ============================================
+   PERSONAJE
+============================================ */
+
+.pixel-character {
+
+    position: absolute;
+
+    right: 13%;
+
+    bottom: 12%;
+
+    width: 100px;
+    height: 180px;
+
+    z-index: 15;
+
+    animation:
+
+        playerIdle
+        1.3s
+        steps(2)
+        infinite;
+}
+
+
+.head {
+
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    left: 22px;
+    top: 25px;
+
+    background:
+        #e7a06b;
+
+    border:
+
+        6px solid
+        #542c21;
+}
+
+
+.hair-back {
+
+    position: absolute;
+
+    width: 72px;
+    height: 65px;
+
+    left: 14px;
+    top: 10px;
+
+    background:
+        #5c2d21;
+
+    border:
+
+        6px solid
+        #321c1a;
+
+    clip-path:
+
+        polygon(
+            10% 15%,
+            25% 0,
+            40% 15%,
+            55% 0,
+            70% 15%,
+            90% 5%,
+            100% 60%,
+            80% 100%,
+            20% 100%,
+            0 60%
+        );
+}
+
+
+.body {
+
+    position: absolute;
+
+    width: 55px;
+    height: 65px;
+
+    left: 22px;
+    top: 78px;
+
+    background:
+        #1681ba;
+
+    border:
+
+        6px solid
+        #063c68;
+}
+
+
+.backpack {
+
+    position: absolute;
+
+    left: 29px;
+    top: 82px;
+
+    width: 43px;
+    height: 55px;
+
+    background:
+        #39404b;
+
+    border:
+
+        6px solid
+        #202631;
+
+    z-index: 5;
+}
+
+
+.backpack span {
+
+    position: absolute;
+
+    left: 6px;
+    right: 6px;
+    bottom: 7px;
+
+    height: 15px;
+
+    background:
+        #59616a;
+}
+
+
+.arm {
+
+    position: absolute;
+
+    top: 87px;
+
+    width: 18px;
+    height: 55px;
+
+    background:
+        #e29b68;
+
+    border:
+
+        5px solid
+        #583020;
+}
+
+
+.arm-left {
+
+    left: 7px;
+}
+
+
+.arm-right {
+
+    right: 7px;
+}
+
+
+.leg {
+
+    position: absolute;
+
+    top: 135px;
+
+    width: 23px;
+    height: 38px;
+
+    background:
+        #313b63;
+
+    border:
+
+        5px solid
+        #17223d;
+}
+
+
+.leg-left {
+
+    left: 24px;
+}
+
+
+.leg-right {
+
+    right: 24px;
+}
+
+
+.shoe {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 32px;
+    height: 18px;
+
+    background:
+        #f3f3f3;
+
+    border:
+
+        5px solid
+        #282636;
+}
+
+
+.shoe-left {
+
+    left: 15px;
+}
+
+
+.shoe-right {
+
+    right: 15px;
+}
+
+
+@keyframes playerIdle {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-4px);
+    }
+
+}
+
+
+/* ============================================
+   PERRITO
+============================================ */
+
+.pixel-dog {
+
+    position: absolute;
+
+    right: 23%;
+
+    bottom: 12%;
+
+    width: 75px;
+    height: 80px;
+
+    z-index: 14;
+
+    animation:
+
+        dogIdle
+        1s
+        steps(2)
+        infinite;
+}
+
+
+.dog-body {
+
+    position: absolute;
+
+    left: 20px;
+    bottom: 10px;
+
+    width: 45px;
+    height: 45px;
+
+    background:
+        #c87535;
+
+    border:
+
+        5px solid
+        #66351f;
+}
+
+
+.dog-head {
+
+    position: absolute;
+
+    left: 7px;
+    top: 5px;
+
+    width: 40px;
+    height: 38px;
+
+    background:
+        #d8873d;
+
+    border:
+
+        5px solid
+        #66351f;
+}
+
+
+.dog-ear {
+
+    position: absolute;
+
+    top: -18px;
+
+    width: 16px;
+    height: 24px;
+
+    background:
+        #8a4829;
+}
+
+
+.ear-one {
+
+    left: -4px;
+
+    transform:
+        rotate(-20deg);
+}
+
+
+.ear-two {
+
+    right: -4px;
+
+    transform:
+        rotate(20deg);
+}
+
+
+.dog-tail {
+
+    position: absolute;
+
+    right: -3px;
+    top: 30px;
+
+    width: 28px;
+    height: 13px;
+
+    background:
+        #c87535;
+
+    border:
+
+        4px solid
+        #66351f;
+
+    transform:
+        rotate(-35deg);
+
+    transform-origin:
+        left center;
+}
+
+
+@keyframes dogIdle {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-3px);
+    }
+
+}

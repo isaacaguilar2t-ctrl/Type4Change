@@ -1,492 +1,1535 @@
-/* =========================================
-   VARIABLES
-========================================= */
-
-:root {
-
-    --blue-dark: #071936;
-    --blue: #123d75;
-    --blue-light: #1d67a8;
-
-    --cyan: #4fdcff;
-
-    --green: #24c95a;
-    --green-dark: #138d3d;
-
-    --yellow: #ffd83d;
-    --orange: #ff9d2e;
-
-    --white: #ffffff;
-
-    --pixel-font:
-        "Press Start 2P",
-        monospace;
-
-}
-
-
-/* =========================================
-   RESET
-========================================= */
+/* ==========================================================
+   TYPE4CHANGE
+   HOME SCREEN
+   PIXEL ART / 16-BIT / 2D RETRO
+========================================================== */
 
 * {
-
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-
-    box-sizing: border-box;
-
 }
 
-html {
-
-    scroll-behavior: smooth;
-
+html,
+body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
+    overflow: hidden;
 
-    min-height: 100vh;
+    background: #041b32;
 
-    overflow-x: hidden;
-
-    font-family: var(--pixel-font);
-
-    background:
-        linear-gradient(
-            180deg,
-            #4db8e8 0%,
-            #8bdcf2 48%,
-            #68c95c 49%,
-            #229c49 100%
-        );
-
-    color: white;
-
+    font-family:
+        "Arial Black",
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
 }
 
 
-/* =========================================
-   FONDO
-========================================= */
+/* ==========================================================
+   GAME SCREEN
+========================================================== */
 
-.background {
+.game-screen {
+    position: relative;
 
-    position: fixed;
+    width: 100vw;
+    height: 100vh;
 
-    inset: 0;
-
-    z-index: -5;
+    min-height: 650px;
 
     overflow: hidden;
 
-}
-
-
-/* =========================================
-   NUBES
-========================================= */
-
-.cloud {
-
-    position: absolute;
-
-    background: white;
-
-    opacity: .85;
+    background: #54c8ef;
 
     image-rendering: pixelated;
-
 }
 
-.cloud::before,
-.cloud::after {
 
-    content: "";
+/* ==========================================================
+   WORLD
+========================================================== */
 
+.world {
     position: absolute;
 
-    background: white;
+    inset: 0;
 
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            #43c5f4 0%,
+            #86dcf6 42%,
+            #2ca9cf 43%,
+            #087cad 100%
+        );
 }
 
-.cloud-1 {
 
-    width: 150px;
+/* ==========================================================
+   SKY
+========================================================== */
+
+.sky {
+    position: absolute;
+
+    inset: 0 0 auto 0;
+
+    height: 48%;
+
+    background:
+        linear-gradient(
+            #42c3ef 0%,
+            #69d0f3 50%,
+            #b4e9f5 100%
+        );
+}
+
+
+/* ==========================================================
+   CLOUDS
+========================================================== */
+
+.cloud {
+    position: absolute;
+
+    width: 120px;
+    height: 27px;
+
+    background: #ffffff;
+
+    border-bottom: 7px solid #b8e5f3;
+
+    filter:
+        drop-shadow(6px 7px 0 rgba(48, 131, 166, .15));
+
+    animation:
+        cloudFloat 8s steps(8) infinite;
+}
+
+
+.cloud span {
+    position: absolute;
+
+    display: block;
+
+    background: white;
+}
+
+
+.cloud span:nth-child(1) {
+    width: 45px;
     height: 35px;
 
+    left: 10px;
+    top: -17px;
+}
+
+
+.cloud span:nth-child(2) {
+    width: 55px;
+    height: 48px;
+
+    left: 40px;
+    top: -31px;
+}
+
+
+.cloud span:nth-child(3) {
+    width: 38px;
+    height: 30px;
+
+    right: 0;
+    top: -13px;
+}
+
+
+.cloud-1 {
+    left: 8%;
     top: 15%;
-
-    left: 7%;
-
-}
-
-.cloud-1::before {
-
-    width: 60px;
-    height: 50px;
-
-    left: 25px;
-    bottom: 15px;
-
-}
-
-.cloud-1::after {
-
-    width: 50px;
-    height: 45px;
-
-    right: 20px;
-    bottom: 15px;
-
 }
 
 
 .cloud-2 {
+    left: 57%;
+    top: 10%;
 
-    width: 180px;
-    height: 35px;
-
-    top: 25%;
-
-    right: 12%;
-
-}
-
-.cloud-2::before {
-
-    width: 70px;
-    height: 55px;
-
-    left: 30px;
-    bottom: 15px;
-
-}
-
-.cloud-2::after {
-
-    width: 60px;
-    height: 50px;
-
-    right: 30px;
-    bottom: 15px;
-
+    transform: scale(.65);
 }
 
 
 .cloud-3 {
+    right: 8%;
+    top: 23%;
 
-    width: 100px;
-    height: 25px;
+    transform: scale(.85);
+}
 
-    top: 9%;
 
-    right: 42%;
+@keyframes cloudFloat {
+
+    0%,
+    100% {
+        margin-left: 0;
+    }
+
+    50% {
+        margin-left: 25px;
+    }
 
 }
 
 
-/* =========================================
-   CIUDAD
-========================================= */
+/* ==========================================================
+   MOUNTAINS
+========================================================== */
 
-.city {
-
+.mountains {
     position: absolute;
 
-    bottom: 20%;
-
-    left: 0;
+    top: 20%;
 
     width: 100%;
+    height: 33%;
 
-    height: 220px;
-
-    display: flex;
-
-    align-items: flex-end;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    opacity: .75;
-
-}
-
-.building {
-
-    background: #477ba5;
-
-    border: 5px solid #25536f;
-
-    position: relative;
-
-}
-
-.building::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 15px;
-
-    background:
-        repeating-linear-gradient(
-            90deg,
-            #f9d867 0 15px,
-            transparent 15px 30px
-        );
-
-}
-
-.building-1 {
-
-    width: 90px;
-    height: 130px;
-
-}
-
-.building-2 {
-
-    width: 110px;
-    height: 180px;
-
-}
-
-.building-3 {
-
-    width: 80px;
-    height: 150px;
-
-}
-
-.building-4 {
-
-    width: 120px;
-    height: 200px;
-
+    z-index: 2;
 }
 
 
-/* =========================================
-   SUELO
-========================================= */
-
-.ground {
-
+.mountain {
     position: absolute;
 
     bottom: 0;
 
-    width: 100%;
+    width: 370px;
+    height: 300px;
 
-    height: 22%;
-
-    background:
-
-        repeating-linear-gradient(
-            0deg,
-            #239448 0 15px,
-            #299d4d 15px 30px
+    clip-path:
+        polygon(
+            50% 0,
+            100% 100%,
+            0 100%
         );
 
-    border-top: 8px solid #126c38;
+    background:
+        linear-gradient(
+            135deg,
+            #e4f8ff 0% 14%,
+            #a6d8e9 15% 25%,
+            #63a9c5 26% 50%,
+            #4388a4 51% 70%,
+            #2b708d 71%
+        );
+}
+
+
+.mountain-left {
+    left: -7%;
+
+    transform: scale(.85);
+}
+
+
+.mountain-center {
+    left: 20%;
+
+    transform: scale(.50);
+}
+
+
+.mountain-right {
+    right: -6%;
+
+    transform: scale(.95);
+}
+
+
+/* ==========================================================
+   DISTANT CITY
+========================================================== */
+
+.city {
+    position: absolute;
+
+    left: 50%;
+    top: 31%;
+
+    transform: translateX(-50%);
+
+    width: 400px;
+    height: 170px;
+
+    z-index: 3;
+}
+
+
+.building {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 42px;
+
+    border:
+        5px solid #236783;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #76d9ed 0 9px,
+            #318aa8 9px 14px
+        );
+
+    box-shadow:
+        inset 7px 0 rgba(255,255,255,.15);
+}
+
+
+.building-1 {
+    left: 5px;
+    height: 65px;
+}
+
+.building-2 {
+    left: 55px;
+    height: 110px;
+}
+
+.building-3 {
+    left: 105px;
+    height: 85px;
+}
+
+.building-4 {
+    left: 160px;
+    height: 150px;
+}
+
+.building-5 {
+    left: 220px;
+    height: 95px;
+}
+
+.building-6 {
+    left: 275px;
+    height: 125px;
+}
+
+.building-7 {
+    left: 330px;
+    height: 75px;
+}
+
+
+/* ==========================================================
+   LAKE
+========================================================== */
+
+.lake {
+    position: absolute;
+
+    left: 14%;
+    right: 14%;
+
+    top: 43%;
+    bottom: -5%;
+
+    z-index: 4;
+
+    clip-path:
+        polygon(
+            15% 0,
+            85% 0,
+            100% 100%,
+            0 100%
+        );
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #087ead 0 10px,
+            #0793c1 10px 18px,
+            #18add0 18px 24px
+        );
+
+    animation:
+        waterAnimation
+        3s steps(4)
+        infinite;
+}
+
+
+@keyframes waterAnimation {
+
+    50% {
+        background-position:
+            15px 5px;
+    }
 
 }
 
 
-/* =========================================
-   PARTICULAS
-========================================= */
+.water-line {
+    position: absolute;
 
-#particles {
+    height: 5px;
 
+    background:
+        #91eaff;
+
+    opacity: .75;
+}
+
+
+.water-1 {
+    width: 120px;
+
+    top: 13%;
+    left: 15%;
+}
+
+.water-2 {
+    width: 80px;
+
+    top: 27%;
+    right: 20%;
+}
+
+.water-3 {
+    width: 160px;
+
+    top: 45%;
+    left: 37%;
+}
+
+.water-4 {
+    width: 100px;
+
+    top: 67%;
+    right: 14%;
+}
+
+.water-5 {
+    width: 180px;
+
+    bottom: 12%;
+    left: 17%;
+}
+
+
+/* ==========================================================
+   ISLANDS
+========================================================== */
+
+.island {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 41%;
+    height: 53%;
+
+    z-index: 5;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #65b842 0 20px,
+            #5aad3b 20px 40px,
+            #4a9d36 40px 60px
+        );
+
+    border-top:
+        14px solid #83d355;
+}
+
+
+.left-island {
+    left: -9%;
+
+    clip-path:
+        polygon(
+            0 0,
+            70% 4%,
+            98% 23%,
+            76% 44%,
+            93% 65%,
+            70% 100%,
+            0 100%
+        );
+}
+
+
+.right-island {
+    right: -9%;
+
+    clip-path:
+        polygon(
+            30% 4%,
+            100% 0,
+            100% 100%,
+            30% 100%,
+            7% 65%,
+            24% 44%,
+            2% 23%
+        );
+}
+
+
+/* ==========================================================
+   TREES
+========================================================== */
+
+.tree {
+    position: absolute;
+
+    width: 70px;
+    height: 105px;
+
+    z-index: 10;
+}
+
+
+.tree-top {
+    position: absolute;
+
+    left: 7px;
+
+    width: 57px;
+    height: 57px;
+
+    background: #35a443;
+
+    border:
+        6px solid #176b32;
+
+    box-shadow:
+        -17px 15px 0 #42b747,
+        17px 15px 0 #278e38,
+        0 -17px 0 #5bc950,
+        -9px -8px 0 #49b84b;
+
+    animation:
+        treeMove 2.5s steps(3) infinite;
+}
+
+
+.tree-trunk {
+    position: absolute;
+
+    left: 27px;
+    bottom: 0;
+
+    width: 18px;
+    height: 50px;
+
+    background: #85512e;
+
+    border:
+        5px solid #58341f;
+}
+
+
+@keyframes treeMove {
+
+    50% {
+        transform:
+            translateX(2px);
+    }
+
+}
+
+
+.tree-l1 {
+    left: 17%;
+    top: 16%;
+}
+
+.tree-l2 {
+    left: 43%;
+    top: 47%;
+
+    transform: scale(.75);
+}
+
+.tree-l3 {
+    left: 63%;
+    top: 19%;
+
+    transform: scale(.9);
+}
+
+.tree-l4 {
+    left: 25%;
+    top: 68%;
+
+    transform: scale(.7);
+}
+
+
+.tree-r1 {
+    right: 20%;
+    top: 18%;
+}
+
+.tree-r2 {
+    right: 48%;
+    top: 48%;
+
+    transform: scale(.8);
+}
+
+.tree-r3 {
+    right: 24%;
+    top: 66%;
+
+    transform: scale(.7);
+}
+
+
+/* ==========================================================
+   HOUSES
+========================================================== */
+
+.house {
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    z-index: 11;
+}
+
+
+.house-left {
+    left: 29%;
+    top: 26%;
+}
+
+
+.house-right {
+    right: 28%;
+    top: 23%;
+}
+
+
+.house-roof {
+    position: absolute;
+
+    width: 135px;
+    height: 70px;
+
+    background: #dd6734;
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 100%,
+            0 100%
+        );
+
+    border-bottom:
+        9px solid #8e3d27;
+}
+
+
+.house-wall {
+    position: absolute;
+
+    left: 12px;
+    top: 61px;
+
+    width: 112px;
+    height: 73px;
+
+    background: #f0d28e;
+
+    border:
+        7px solid #93603a;
+}
+
+
+.window {
+    position: absolute;
+
+    top: 15px;
+
+    width: 23px;
+    height: 23px;
+
+    background: #55c7e4;
+
+    border:
+        5px solid #68442d;
+}
+
+
+.window-left {
+    left: 10px;
+}
+
+
+.window-right {
+    right: 10px;
+}
+
+
+.door {
+    position: absolute;
+
+    left: 43px;
+    bottom: 0;
+
+    width: 25px;
+    height: 40px;
+
+    background: #90482e;
+
+    border:
+        5px solid #64301f;
+}
+
+
+/* ==========================================================
+   BRIDGE
+========================================================== */
+
+.bridge {
+    position: absolute;
+
+    left: 21%;
+    bottom: 8%;
+
+    z-index: 8;
+
+    width: 190px;
+    height: 60px;
+
+    transform:
+        rotate(-8deg);
+
+    display: flex;
+}
+
+
+.bridge span {
+    width: 38px;
+    height: 55px;
+
+    background: #bd773e;
+
+    border:
+        5px solid #754523;
+}
+
+
+/* ==========================================================
+   CLIFF
+========================================================== */
+
+.cliff {
+    position: absolute;
+
+    right: -3%;
+    bottom: -2%;
+
+    width: 36%;
+    height: 31%;
+
+    z-index: 8;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #945c38 0 28px,
+            #70442e 28px 50px,
+            #a86a40 50px 72px
+        );
+
+    clip-path:
+        polygon(
+            10% 0,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+}
+
+
+.cliff-grass {
+    position: absolute;
+
+    top: 0;
+
+    width: 100%;
+    height: 38px;
+
+    background:
+        #54ae3f;
+
+    border-bottom:
+        9px solid #337b31;
+}
+
+
+.stone {
+    position: absolute;
+
+    background: #75503d;
+
+    border:
+        5px solid #523728;
+}
+
+
+.stone-1 {
+    width: 40px;
+    height: 25px;
+
+    left: 25%;
+    top: 45%;
+}
+
+
+.stone-2 {
+    width: 30px;
+    height: 20px;
+
+    right: 25%;
+    top: 60%;
+}
+
+
+.stone-3 {
+    width: 50px;
+    height: 25px;
+
+    left: 50%;
+    bottom: 10%;
+}
+
+
+/* ==========================================================
+   PLAYER
+========================================================== */
+
+.player {
+    position: absolute;
+
+    right: 13%;
+    bottom: 10%;
+
+    width: 110px;
+    height: 190px;
+
+    z-index: 20;
+
+    animation:
+        playerIdle
+        1.4s steps(2)
+        infinite;
+}
+
+
+.player-shadow {
+    position: absolute;
+
+    left: 13px;
+    bottom: -5px;
+
+    width: 90px;
+    height: 20px;
+
+    background:
+        rgba(32, 35, 30, .35);
+
+    border-radius: 50%;
+}
+
+
+.hair {
+    position: absolute;
+
+    left: 16px;
+    top: 7px;
+
+    width: 78px;
+    height: 75px;
+
+    z-index: 5;
+
+    background: #542b21;
+
+    border:
+        6px solid #2e1917;
+
+    clip-path:
+        polygon(
+            8% 18%,
+            18% 3%,
+            31% 13%,
+            42% 0,
+            55% 13%,
+            70% 3%,
+            78% 17%,
+            94% 10%,
+            100% 52%,
+            89% 92%,
+            72% 100%,
+            24% 100%,
+            5% 85%,
+            0 45%
+        );
+}
+
+
+.player-head {
+    position: absolute;
+
+    left: 28px;
+    top: 30px;
+
+    width: 54px;
+    height: 52px;
+
+    background: #e9a06b;
+
+    border:
+        6px solid #4b2920;
+}
+
+
+.player-neck {
+    position: absolute;
+
+    left: 45px;
+    top: 75px;
+
+    width: 23px;
+    height: 20px;
+
+    background: #dc9161;
+}
+
+
+.player-body {
+    position: absolute;
+
+    left: 26px;
+    top: 86px;
+
+    width: 60px;
+    height: 65px;
+
+    background: #1884ba;
+
+    border:
+        6px solid #063e69;
+}
+
+
+.backpack {
+    position: absolute;
+
+    left: 31px;
+    top: 88px;
+
+    width: 50px;
+    height: 60px;
+
+    z-index: 7;
+
+    background: #39434d;
+
+    border:
+        6px solid #1e2730;
+}
+
+
+.backpack span {
+    position: absolute;
+
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+
+    height: 16px;
+
+    background: #596570;
+
+    border:
+        3px solid #28323b;
+}
+
+
+.player-arm {
+    position: absolute;
+
+    top: 95px;
+
+    width: 19px;
+    height: 55px;
+
+    background: #dc9666;
+
+    border:
+        5px solid #543023;
+}
+
+
+.arm-left {
+    left: 10px;
+}
+
+
+.arm-right {
+    right: 9px;
+}
+
+
+.player-leg {
+    position: absolute;
+
+    top: 143px;
+
+    width: 25px;
+    height: 38px;
+
+    background: #303c65;
+
+    border:
+        5px solid #18223e;
+}
+
+
+.leg-left {
+    left: 28px;
+}
+
+
+.leg-right {
+    right: 28px;
+}
+
+
+.player-shoe {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 34px;
+    height: 19px;
+
+    background: #eeeeee;
+
+    border:
+        5px solid #272735;
+}
+
+
+.shoe-left {
+    left: 19px;
+}
+
+
+.shoe-right {
+    right: 19px;
+}
+
+
+@keyframes playerIdle {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-4px);
+    }
+
+}
+
+
+/* ==========================================================
+   DOG
+========================================================== */
+
+.dog {
+    position: absolute;
+
+    right: 22%;
+    bottom: 10%;
+
+    width: 80px;
+    height: 90px;
+
+    z-index: 19;
+
+    animation:
+        dogIdle
+        1s steps(2)
+        infinite;
+}
+
+
+.dog-body {
+    position: absolute;
+
+    left: 24px;
+    bottom: 11px;
+
+    width: 47px;
+    height: 47px;
+
+    background: #c97435;
+
+    border:
+        5px solid #66351f;
+}
+
+
+.dog-head {
+    position: absolute;
+
+    left: 7px;
+    top: 8px;
+
+    width: 43px;
+    height: 40px;
+
+    background: #da873d;
+
+    border:
+        5px solid #66351f;
+}
+
+
+.dog-ear {
+    position: absolute;
+
+    top: -20px;
+
+    width: 17px;
+    height: 26px;
+
+    background: #8d4828;
+
+    border:
+        3px solid #66351f;
+}
+
+
+.dog-ear-left {
+    left: -5px;
+
+    transform:
+        rotate(-20deg);
+}
+
+
+.dog-ear-right {
+    right: -5px;
+
+    transform:
+        rotate(20deg);
+}
+
+
+.dog-tail {
+    position: absolute;
+
+    right: -2px;
+    top: 37px;
+
+    width: 30px;
+    height: 14px;
+
+    background: #c97435;
+
+    border:
+        4px solid #66351f;
+
+    transform:
+        rotate(-35deg);
+
+    transform-origin:
+        left center;
+}
+
+
+.dog-leg {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 12px;
+    height: 25px;
+
+    background: #a65a2d;
+}
+
+
+.dog-leg-left {
+    left: 28px;
+}
+
+
+.dog-leg-right {
+    right: 9px;
+}
+
+
+@keyframes dogIdle {
+
+    50% {
+        transform:
+            translateY(-3px);
+    }
+
+}
+
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.logo-container {
+    position: absolute;
+
+    top: 8%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 100;
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+
+.logo-container h1 {
+    font-family:
+        Impact,
+        "Arial Black",
+        sans-serif;
+
+    font-size:
+        clamp(55px, 6.2vw, 105px);
+
+    letter-spacing:
+        -3px;
+
+    line-height: .9;
+
+    color: white;
+
+    -webkit-text-stroke:
+        5px #031e40;
+
+    paint-order:
+        stroke fill;
+
+    text-shadow:
+        0 5px 0 #27a9dc,
+        0 9px 0 #0874ae,
+        0 13px 0 #034b7c,
+        0 17px 0 #012a51,
+        5px 20px 0 rgba(0,0,0,.30);
+}
+
+
+.logo-container h1 span {
+    color: #ffc82f;
+
+    -webkit-text-stroke:
+        5px #563600;
+
+    text-shadow:
+        0 5px 0 #f4a500,
+        0 9px 0 #c46b00,
+        0 13px 0 #703a00;
+}
+
+
+/* TAGLINE */
+
+.tagline {
+    display: inline-block;
+
+    margin-top: 7px;
+
+    padding:
+        9px 34px 11px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            #07588f,
+            #04335e
+        );
+
+    border:
+        4px solid #031e3d;
+
+    border-radius:
+        4px 4px 11px 11px;
+
+    box-shadow:
+        inset 0 2px 0 rgba(90,205,255,.3),
+        0 5px 0 rgba(0,20,40,.4);
+
+    font-size:
+        clamp(15px, 1.4vw, 23px);
+
+    text-shadow:
+        2px 2px #01254a;
+}
+
+
+/* ==========================================================
+   MENU
+========================================================== */
+
+.menu {
+    position: absolute;
+
+    left: 50%;
+    top: 54%;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 100;
+
+    width:
+        clamp(220px, 18vw, 310px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.game-button {
+    width: 100%;
+
+    height:
+        clamp(48px, 5.5vh, 65px);
+
+    color: white;
+
+    background:
+        linear-gradient(
+            #0b6baa,
+            #07548d 48%,
+            #054577 52%,
+            #03335f
+        );
+
+    border:
+        4px solid #001d3c;
+
+    outline:
+        2px solid #147db6;
+
+    outline-offset:
+        -7px;
+
+    border-radius:
+        9px;
+
+    box-shadow:
+        inset 0 3px 0 rgba(100,215,255,.4),
+        inset 0 -4px 0 rgba(0,20,45,.5),
+        0 5px 0 rgba(0,20,45,.7);
+
+    font-family:
+        "Arial Black",
+        sans-serif;
+
+    font-size:
+        clamp(14px, 1.2vw, 19px);
+
+    text-shadow:
+        2px 2px #00244a;
+
+    cursor: pointer;
+
+    transition:
+        .1s;
+}
+
+
+/* PLAY */
+
+.play {
+    height:
+        clamp(62px, 7vh, 78px);
+
+    color: white;
+
+    background:
+        linear-gradient(
+            #55ed68,
+            #34dd55 45%,
+            #20c749 50%,
+            #078530
+        );
+
+    border-color:
+        #003d1f;
+
+    outline-color:
+        #8aff98;
+
+    box-shadow:
+        inset 0 4px 0 rgba(200,255,205,.8),
+        inset 0 -5px 0 rgba(0,90,30,.6),
+        0 5px 0 #004622,
+        0 0 14px rgba(30,255,80,.35);
+
+    font-size:
+        clamp(20px, 1.7vw, 28px);
+
+    text-shadow:
+        2px 3px #08732c;
+}
+
+
+.game-button:hover {
+    transform:
+        translateY(-3px);
+
+    filter:
+        brightness(1.18);
+}
+
+
+.game-button:active {
+    transform:
+        translateY(3px);
+}
+
+
+/* ==========================================================
+   LANGUAGE
+========================================================== */
+
+.language {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    z-index: 110;
+
+    padding:
+        7px 11px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            #0b5e96,
+            #04365f
+        );
+
+    border:
+        3px solid #063b67;
+
+    border-radius:
+        7px;
+
+    box-shadow:
+        inset 0 2px rgba(255,255,255,.2),
+        0 4px rgba(0,20,40,.5);
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================================
+   QUOTE
+========================================================== */
+
+.quote {
+    position: absolute;
+
+    left: 50%;
+    bottom: 2.5%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 100;
+
+    padding:
+        9px 30px;
+
+    width: max-content;
+
+    max-width: 80%;
+
+    color: #dcefff;
+
+    background:
+        rgba(3, 31, 62, .88);
+
+    border:
+        2px solid #0e6799;
+
+    border-radius:
+        8px;
+
+    box-shadow:
+        0 4px rgba(0,15,35,.4);
+
+    font-family:
+        "Trebuchet MS",
+        sans-serif;
+
+    font-size:
+        clamp(12px, 1vw, 17px);
+
+    font-weight: bold;
+
+    font-style: italic;
+
+    text-shadow:
+        1px 2px #002042;
+}
+
+
+/* ==========================================================
+   TRANSITION
+========================================================== */
+
+.transition-screen {
     position: fixed;
 
     inset: 0;
 
-    pointer-events: none;
-
-    z-index: -1;
-
-}
-
-
-/* =========================================
-   NAVBAR
-========================================= */
-
-.navbar {
-
-    width: 100%;
-
-    padding: 20px 40px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-}
-
-.mini-logo {
-
-    font-size: 15px;
-
-    text-shadow:
-        3px 3px #071936;
-
-}
-
-.mini-logo span {
-
-    color: var(--yellow);
-
-}
-
-.nav-right {
-
-    display: flex;
-
-    gap: 15px;
-
-}
-
-.nav-button {
-
-    font-family: var(--pixel-font);
-
-    font-size: 9px;
-
-    color: white;
-
-    background: rgba(7,25,54,.8);
-
-    border: 2px solid var(--cyan);
-
-    padding: 12px 15px;
-
-    cursor: pointer;
-
-    transition: .2s;
-
-}
-
-.nav-button:hover {
-
-    background: var(--cyan);
-
-    color: var(--blue-dark);
-
-    transform: translateY(-3px);
-
-}
-
-
-/* =========================================
-   HOME
-========================================= */
-
-.home {
-
-    min-height: calc(100vh - 80px);
-
-    padding: 20px 30px 60px;
-
-}
-
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero {
-
-    max-width: 1250px;
-
-    margin: auto;
-
-    min-height: 650px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 100px;
-
-}
-
-
-/* =========================================
-   LOGO
-========================================= */
-
-.logo-container {
-
-    text-align: center;
-
-    animation: floating 4s ease-in-out infinite;
-
-}
-
-.game-logo {
-
-    font-size: clamp(35px, 6vw, 75px);
-
-    line-height: 1.2;
-
-    color: white;
-
-    letter-spacing: 2px;
-
-    text-shadow:
-
-        5px 5px #12355b,
-        8px 8px #071936;
-
-}
-
-.game-logo span {
-
-    color: var(--yellow);
-
-}
-
-.subtitle {
-
-    margin-top: 15px;
-
-    font-size: 16px;
-
-    color: var(--yellow);
-
-    text-shadow: 3px 3px #17436c;
-
-}
-
-.description {
-
-    margin: 25px auto;
-
-    max-width: 550px;
-
-    font-size: 11px;
-
-    line-height: 2;
-
-}
-
-
-/* =========================================
-   MENU
-========================================= */
-
-.menu {
+    z-index: 9999;
 
     display: flex;
 
@@ -494,767 +1537,152 @@ body {
 
     align-items: center;
 
-    gap: 15px;
+    justify-content: center;
 
-    margin-top: 30px;
+    gap: 20px;
 
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+        #04294e;
+
+    transition:
+        opacity .3s;
 }
 
-.game-button {
 
-    width: 300px;
+.transition-screen.active {
+    opacity: 1;
 
-    padding: 17px 20px;
+    pointer-events: all;
+}
 
-    font-family: var(--pixel-font);
 
-    font-size: 12px;
-
+.loading-logo {
     color: white;
 
-    background:
+    font-size:
+        clamp(40px, 6vw, 80px);
 
-        linear-gradient(
-            #175b9b,
-            #0d3a70
-        );
+    -webkit-text-stroke:
+        4px #001c3c;
 
-    border: 4px solid #08264b;
+    text-shadow:
+        0 6px #0874ae;
 
-    box-shadow:
-
-        0 5px 0 #05182f,
-        inset 0 2px 0 rgba(255,255,255,.25);
-
-    cursor: pointer;
-
-    transition: .15s;
-
-}
-
-.game-button:hover {
-
-    transform: translateY(-4px);
-
-    background:
-        linear-gradient(
-            #267fc1,
-            #14528e
-        );
-
-}
-
-.game-button:active {
-
-    transform: translateY(3px);
-
-    box-shadow:
-
-        0 2px 0 #05182f;
-
-}
-
-.game-button span {
-
-    margin-right: 10px;
-
-}
-
-.play-button {
-
-    background:
-
-        linear-gradient(
-            #2ed968,
-            #159643
-        );
-
-    border-color: #075d2b;
-
-    box-shadow:
-
-        0 5px 0 #06441f,
-        inset 0 2px 0 rgba(255,255,255,.3);
-
-}
-
-.play-button:hover {
-
-    background:
-
-        linear-gradient(
-            #45ed7c,
-            #20ae50
-        );
-
+    font-family:
+        Impact,
+        sans-serif;
 }
 
 
-/* =========================================
-   PERSONAJE
-========================================= */
-
-.character-area {
-
-    position: relative;
-
-    width: 280px;
-
-    height: 350px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
+.loading-logo span {
+    color: #ffc82f;
 }
 
 
-/* personaje simple */
-
-.pixel-character {
-
-    position: relative;
-
-    width: 90px;
-
-    height: 170px;
-
-    image-rendering: pixelated;
-
-    animation:
-
-        characterFloat
-        2s ease-in-out infinite;
-
-}
-
-.character-head {
-
-    position: absolute;
-
-    width: 70px;
-
-    height: 70px;
-
-    background: #c97b4c;
-
-    border: 7px solid #43281e;
-
-    left: 10px;
-
-    top: 15px;
-
-}
-
-.character-hair {
-
-    position: absolute;
-
-    width: 75px;
-
-    height: 30px;
-
-    background: #35241d;
-
-    border: 5px solid #43281e;
-
-    left: 7px;
-
-    top: 5px;
-
-    z-index: 2;
-
-}
-
-.eye {
-
-    position: absolute;
-
-    width: 7px;
-
-    height: 9px;
-
-    background: #071936;
-
-    top: 30px;
-
-}
-
-.eye-left {
-
-    left: 15px;
-
-}
-
-.eye-right {
-
-    right: 15px;
-
-}
-
-.character-body {
-
-    position: absolute;
-
-    width: 75px;
-
-    height: 70px;
-
-    background: #2573a8;
-
-    border: 7px solid #173e5c;
-
-    left: 7px;
-
-    top: 82px;
-
-}
-
-.character-arm {
-
-    position: absolute;
-
-    width: 20px;
-
-    height: 60px;
-
-    background: #c97b4c;
-
-    border: 5px solid #43281e;
-
-    top: 90px;
-
-}
-
-.arm-left {
-
-    left: -12px;
-
-}
-
-.arm-right {
-
-    right: -12px;
-
-}
-
-.character-leg {
-
-    position: absolute;
-
-    width: 25px;
-
-    height: 55px;
-
-    background: #263a5a;
-
-    border: 5px solid #15243b;
-
-    top: 150px;
-
-}
-
-.leg-left {
-
-    left: 17px;
-
-}
-
-.leg-right {
-
-    right: 17px;
-
-}
-
-.character-shadow {
-
-    position: absolute;
-
-    width: 120px;
-
-    height: 25px;
-
-    background: rgba(0,0,0,.25);
-
-    border-radius: 50%;
-
-    bottom: 55px;
-
-}
-
-
-/* =========================================
-   BURBUJA
-========================================= */
-
-.speech-bubble {
-
-    position: absolute;
-
-    top: 10px;
-
-    left: 130px;
-
-    width: 220px;
-
-    padding: 15px;
-
-    background: white;
-
-    color: #183352;
-
-    border: 4px solid #183352;
-
-    font-size: 9px;
-
-    line-height: 1.8;
-
-    box-shadow: 5px 5px rgba(0,0,0,.25);
-
-}
-
-.speech-bubble strong {
-
-    display: block;
-
-    color: #159643;
-
-    margin-top: 5px;
-
-}
-
-
-/* =========================================
-   IMPACT
-========================================= */
-
-.impact-section {
-
-    max-width: 850px;
-
-    margin: 20px auto;
-
-}
-
-.impact-card {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    background: rgba(7,25,54,.88);
-
-    border: 3px solid var(--cyan);
-
-    padding: 20px;
-
-    box-shadow: 0 8px 0 rgba(0,0,0,.25);
-
-}
-
-.impact-icon {
-
-    width: 55px;
-    height: 55px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: var(--yellow);
-
-    color: #765000;
-
-    border: 4px solid #9d7400;
-
-    font-size: 25px;
-
-}
-
-.impact-info {
-
-    flex: 1;
-
-}
-
-.impact-info h3 {
-
-    font-size: 10px;
-
-    margin-bottom: 12px;
-
-}
-
-.impact-info p {
-
-    font-size: 8px;
-
-    margin-top: 8px;
-
-    color: #c7d8ed;
-
-}
-
-.progress-container {
-
-    width: 100%;
-
-    height: 18px;
-
-    background: #07111f;
-
-    border: 3px solid #315477;
-
-}
-
-.progress-bar {
-
-    width: 0%;
-
-    height: 100%;
-
-    background:
-
-        repeating-linear-gradient(
-            90deg,
-            #28d55f 0 15px,
-            #20b84f 15px 30px
-        );
-
-    transition: width 2s ease;
-
-}
-
-.impact-number {
-
-    font-size: 22px;
-
-    color: var(--yellow);
-
-}
-
-
-/* =========================================
-   FEATURES
-========================================= */
-
-.features {
-
-    max-width: 1000px;
-
-    margin: 50px auto 20px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-
-}
-
-.feature {
-
-    text-align: center;
-
-    padding: 25px;
-
-    background: rgba(7,25,54,.8);
-
-    border: 3px solid #3188b9;
-
-    transition: .2s;
-
-}
-
-.feature:hover {
-
-    transform: translateY(-8px);
-
-    border-color: var(--yellow);
-
-}
-
-.feature-icon {
-
-    font-size: 40px;
-
-    margin-bottom: 15px;
-
-}
-
-.feature h3 {
-
-    font-size: 11px;
-
-    color: var(--yellow);
-
-    margin-bottom: 15px;
-
-}
-
-.feature p {
-
-    font-family: Arial, sans-serif;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-
-    color: #d7e8f6;
-
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-footer {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 25px 40px;
-
-    background: #061426;
-
-    border-top: 3px solid #1e5c85;
-
-    font-size: 8px;
-
-    color: #8aa9c5;
-
-}
-
-
-/* =========================================
-   MODAL
-========================================= */
-
-.modal {
-
-    position: fixed;
-
-    inset: 0;
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: rgba(0,0,0,.75);
-
-    z-index: 100;
-
-    padding: 20px;
-
-}
-
-.modal.active {
-
-    display: flex;
-
-}
-
-.modal-box {
-
-    position: relative;
-
-    width: min(650px, 100%);
-
-    background: #0b294d;
-
-    border: 5px solid var(--cyan);
-
-    padding: 40px;
-
-    box-shadow: 10px 10px #020b18;
-
-}
-
-.modal-box h2 {
-
-    color: var(--yellow);
+.transition-screen p {
+    color: white;
 
     font-size: 18px;
-
-    margin-bottom: 25px;
-
-}
-
-.modal-box p {
-
-    font-family: Arial, sans-serif;
-
-    font-size: 16px;
-
-    line-height: 1.7;
-
-    color: #d8e7f3;
-
-    margin-bottom: 15px;
-
-}
-
-.modal-box li {
-
-    font-family: Arial, sans-serif;
-
-    margin: 12px 0;
-
-    line-height: 1.5;
-
-}
-
-.close-button {
-
-    position: absolute;
-
-    top: 10px;
-
-    right: 15px;
-
-    background: transparent;
-
-    border: none;
-
-    color: white;
-
-    font-size: 30px;
-
-    cursor: pointer;
-
 }
 
 
-/* =========================================
-   ANIMACIONES
-========================================= */
+.loading-bar {
+    width: 300px;
+    height: 20px;
 
-@keyframes floating {
+    padding: 3px;
 
-    0%,
-    100% {
+    background: #021a35;
 
-        transform: translateY(0);
-
-    }
-
-    50% {
-
-        transform: translateY(-10px);
-
-    }
-
+    border:
+        3px solid #1fc9ff;
 }
 
-@keyframes characterFloat {
 
-    0%,
-    100% {
+.loading-bar div {
+    width: 0;
+    height: 100%;
 
-        transform: translateY(0);
+    background: #38dc5b;
+}
 
-    }
 
-    50% {
+.transition-screen.active
+.loading-bar div {
+    animation:
+        load 1s linear forwards;
+}
 
-        transform: translateY(-12px);
 
+@keyframes load {
+
+    to {
+        width: 100%;
     }
 
 }
 
 
-/* =========================================
+/* ==========================================================
    RESPONSIVE
-========================================= */
+========================================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 
-    .hero {
+    .logo-container h1 {
+        font-size: 48px;
 
-        flex-direction: column;
-
-        gap: 20px;
-
-        padding-top: 30px;
-
+        -webkit-text-stroke:
+            3px #031e40;
     }
 
-    .character-area {
+    .logo-container h1 span {
+        -webkit-text-stroke:
+            3px #563600;
+    }
+
+    .menu {
+        width: 210px;
+    }
+
+    .player {
+        right: 5%;
 
         transform: scale(.8);
 
+        transform-origin:
+            bottom;
     }
 
-    .features {
+    .dog {
+        right: 22%;
 
-        grid-template-columns: 1fr;
-
-        max-width: 500px;
-
+        transform: scale(.75);
     }
 
-    .nav-right {
-
-        display: none;
-
+    .city {
+        transform:
+            translateX(-50%)
+            scale(.7);
     }
 
 }
 
 
-@media (max-width: 600px) {
+/* ==========================================================
+   PIXEL FEEL
+========================================================== */
 
-    .navbar {
-
-        padding: 15px 20px;
-
-    }
-
-    .home {
-
-        padding: 10px 15px 40px;
-
-    }
-
-    .game-button {
-
-        width: 90vw;
-
-        max-width: 300px;
-
-    }
-
-    .impact-card {
-
-        flex-wrap: wrap;
-
-    }
-
-    .impact-info {
-
-        min-width: 70%;
-
-    }
-
-    footer {
-
-        flex-direction: column;
-
-        gap: 10px;
-
-        text-align: center;
-
-    }
-
+.game-screen,
+.world,
+.player,
+.dog,
+.tree,
+.house,
+.city {
+    image-rendering: pixelated;
 }

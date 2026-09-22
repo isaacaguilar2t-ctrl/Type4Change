@@ -2,349 +2,325 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Type4Change</title>
 
-    <meta name="description"
-          content="Type4Change - Write. Act. Change.">
-
-    <title>Type4Change | Write. Act. Change.</title>
-
-    <link rel="stylesheet" href="Style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-          rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         FONDO
-    ========================== -->
+<main class="game-screen">
 
-    <div class="background">
+    <!-- =========================================
+         ESCENARIO PIXEL ART
+    ========================================== -->
 
-        <div class="cloud cloud-1"></div>
-        <div class="cloud cloud-2"></div>
-        <div class="cloud cloud-3"></div>
+    <div class="world">
 
+        <!-- CIELO -->
+        <div class="sky">
+
+            <div class="cloud cloud-1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="cloud cloud-2">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="cloud cloud-3">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+
+        <!-- MONTAÑAS -->
+        <div class="mountains">
+
+            <div class="mountain mountain-left"></div>
+            <div class="mountain mountain-center"></div>
+            <div class="mountain mountain-right"></div>
+
+        </div>
+
+
+        <!-- CIUDAD LEJANA -->
         <div class="city">
 
             <div class="building building-1"></div>
             <div class="building building-2"></div>
             <div class="building building-3"></div>
             <div class="building building-4"></div>
+            <div class="building building-5"></div>
+            <div class="building building-6"></div>
+            <div class="building building-7"></div>
 
         </div>
 
-        <div class="ground"></div>
+
+        <!-- LAGO -->
+        <div class="lake">
+
+            <div class="water-line water-1"></div>
+            <div class="water-line water-2"></div>
+            <div class="water-line water-3"></div>
+            <div class="water-line water-4"></div>
+            <div class="water-line water-5"></div>
+
+        </div>
+
+
+        <!-- =========================================
+             COSTA IZQUIERDA
+        ========================================== -->
+
+        <div class="island left-island">
+
+            <div class="house house-left">
+
+                <div class="house-roof"></div>
+
+                <div class="house-wall">
+                    <span class="window window-left"></span>
+                    <span class="window window-right"></span>
+                    <span class="door"></span>
+                </div>
+
+            </div>
+
+
+            <div class="tree tree-l1">
+                <div class="tree-top"></div>
+                <div class="tree-trunk"></div>
+            </div>
+
+            <div class="tree tree-l2">
+                <div class="tree-top"></div>
+                <div class="tree-trunk"></div>
+            </div>
+
+            <div class="tree tree-l3">
+                <div class="tree-top"></div>
+                <div class="tree-trunk"></div>
+            </div>
+
+            <div class="tree tree-l4">
+                <div class="tree-top"></div>
+                <div class="tree-trunk"></div>
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             COSTA DERECHA
+        ========================================== -->
+
+        <div class="island right-island">
+
+            <div class="house house-right">
+
+                <div class="house-roof"></div>
+
+                <div class="house-wall">
+                    <span class="window window-left"></span>
+                    <span class="window window-right"></span>
+                    <span class="door"></span>
+                </div>
+
+            </div>
+
+
+            <div class="tree tree-r1">
+                <div class="tree-top"></div>
+                <div class="tree-trunk"></div>
+            </div>
+
+            <div class="tree tree-r2">
+                <div class="tree-top"></div>
+                <div class="tree-trunk"></div>
+            </div>
+
+            <div class="tree tree-r3">
+                <div class="tree-top"></div>
+                <div class="tree-trunk"></div>
+            </div>
+
+        </div>
+
+
+        <!-- PUENTE -->
+        <div class="bridge">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <!-- =========================================
+             ACANTILADO DEL PERSONAJE
+        ========================================== -->
+
+        <div class="cliff">
+
+            <div class="cliff-grass"></div>
+
+            <span class="stone stone-1"></span>
+            <span class="stone stone-2"></span>
+            <span class="stone stone-3"></span>
+
+        </div>
+
+
+        <!-- =========================================
+             PERSONAJE
+        ========================================== -->
+
+        <div class="player">
+
+            <div class="player-shadow"></div>
+
+            <div class="hair"></div>
+
+            <div class="player-head"></div>
+
+            <div class="player-neck"></div>
+
+            <div class="player-body"></div>
+
+            <div class="backpack">
+                <span></span>
+            </div>
+
+            <div class="player-arm arm-left"></div>
+            <div class="player-arm arm-right"></div>
+
+            <div class="player-leg leg-left"></div>
+            <div class="player-leg leg-right"></div>
+
+            <div class="player-shoe shoe-left"></div>
+            <div class="player-shoe shoe-right"></div>
+
+        </div>
+
+
+        <!-- =========================================
+             MASCOTA
+        ========================================== -->
+
+        <div class="dog">
+
+            <div class="dog-tail"></div>
+
+            <div class="dog-body"></div>
+
+            <div class="dog-head">
+
+                <span class="dog-ear dog-ear-left"></span>
+                <span class="dog-ear dog-ear-right"></span>
+
+            </div>
+
+            <div class="dog-leg dog-leg-left"></div>
+            <div class="dog-leg dog-leg-right"></div>
+
+        </div>
 
     </div>
 
 
-    <!-- =========================
-         PARTÍCULAS
-    ========================== -->
+    <!-- =========================================
+         INTERFAZ
+    ========================================== -->
 
-    <canvas id="particles"></canvas>
+    <button class="language" id="languageButton">
+        🌐 ES
+    </button>
 
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
+    <!-- LOGO -->
 
-    <header class="navbar">
+    <header class="logo-container">
 
-        <div class="mini-logo">
+        <h1>
             TYPE<span>4</span>CHANGE
-        </div>
+        </h1>
 
-        <div class="nav-right">
-
-            <button
-                class="nav-button"
-                onclick="openHowToPlay()">
-
-                ❓ CÓMO JUGAR
-
-            </button>
-
-            <button
-                class="nav-button"
-                onclick="openAbout()">
-
-                ℹ SOBRE EL PROYECTO
-
-            </button>
-
+        <div class="tagline">
+            Write. Act. Change.
         </div>
 
     </header>
 
 
-    <!-- =========================
-         CONTENIDO PRINCIPAL
-    ========================== -->
+    <!-- MENÚ -->
 
-    <main class="home">
+    <nav class="menu">
 
-        <section class="hero">
+        <button
+            class="game-button play"
+            id="playButton"
+        >
+            JUGAR
+        </button>
 
+        <button
+            class="game-button"
+            id="settingsButton"
+        >
+            CONFIGURACIÓN
+        </button>
 
-            <!-- PERSONAJE -->
+        <button
+            class="game-button"
+            id="exitButton"
+        >
+            SALIR
+        </button>
 
-            <div class="character-area">
+    </nav>
 
-                <div class="pixel-character">
 
-                    <div class="character-hair"></div>
+    <!-- FRASE -->
 
-                    <div class="character-head">
-                        <div class="eye eye-left"></div>
-                        <div class="eye eye-right"></div>
-                    </div>
+    <div class="quote">
+        “Pequeñas palabras. Grandes cambios.”
+    </div>
 
-                    <div class="character-body"></div>
 
-                    <div class="character-arm arm-left"></div>
-                    <div class="character-arm arm-right"></div>
+    <!-- TRANSICIÓN -->
 
-                    <div class="character-leg leg-left"></div>
-                    <div class="character-leg leg-right"></div>
+    <div class="transition-screen" id="transitionScreen">
 
-                </div>
-
-                <div class="character-shadow"></div>
-
-                <div class="speech-bubble">
-
-                    <span>¡Tus palabras pueden</span>
-                    <strong>cambiar el mundo!</strong>
-
-                </div>
-
-            </div>
-
-
-            <!-- LOGO -->
-
-            <div class="logo-container">
-
-                <h1 class="game-logo">
-
-                    TYPE<span>4</span>CHANGE
-
-                </h1>
-
-                <div class="subtitle">
-
-                    WRITE. ACT. CHANGE.
-
-                </div>
-
-                <p class="description">
-
-                    Escribe correctamente.
-                    Completa misiones.
-                    Genera impacto.
-
-                </p>
-
-
-                <!-- BOTONES -->
-
-                <div class="menu">
-
-                    <button
-                        class="game-button play-button"
-                        onclick="startGame()">
-
-                        <span>▶</span>
-                        JUGAR
-
-                    </button>
-
-
-                    <button
-                        class="game-button"
-                        onclick="openHowToPlay()">
-
-                        <span>?</span>
-                        CÓMO JUGAR
-
-                    </button>
-
-
-                    <button
-                        class="game-button"
-                        onclick="openSettings()">
-
-                        <span>⚙</span>
-                        CONFIGURACIÓN
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             IMPACTO
-        ========================== -->
-
-        <section class="impact-section">
-
-            <div class="impact-card">
-
-                <div class="impact-icon">
-                    ★
-                </div>
-
-                <div class="impact-info">
-
-                    <h3>
-                        IMPACTO GLOBAL
-                    </h3>
-
-                    <div class="progress-container">
-
-                        <div
-                            class="progress-bar"
-                            id="impactProgress">
-                        </div>
-
-                    </div>
-
-                    <p>
-                        El mundo necesita tus palabras.
-                    </p>
-
-                </div>
-
-                <div class="impact-number">
-
-                    <span id="impactValue">
-                        0
-                    </span>%
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             FEATURES
-        ========================== -->
-
-        <section class="features">
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    ⌨️
-                </div>
-
-                <h3>
-                    ESCRIBE
-                </h3>
-
-                <p>
-                    Pon a prueba tu velocidad y precisión.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    ⚡
-                </div>
-
-                <h3>
-                    ACTÚA
-                </h3>
-
-                <p>
-                    Cada palabra genera una acción.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🌎
-                </div>
-
-                <h3>
-                    CAMBIA
-                </h3>
-
-                <p>
-                    Transforma el mundo con tu impacto.
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <div>
-            TYPE4CHANGE © 2026
+        <div class="loading-logo">
+            TYPE<span>4</span>CHANGE
         </div>
 
-        <div>
-            WRITE. ACT. CHANGE.
-        </div>
+        <p>Entrando al mundo...</p>
 
-    </footer>
-
-
-    <!-- =========================
-         MODAL
-    ========================== -->
-
-    <div
-        class="modal"
-        id="modal">
-
-        <div class="modal-box">
-
-            <button
-                class="close-button"
-                onclick="closeModal()">
-
-                ×
-
-            </button>
-
-            <div id="modalContent"></div>
-
+        <div class="loading-bar">
+            <div></div>
         </div>
 
     </div>
 
+</main>
 
-    <script src="Script.js"></script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
